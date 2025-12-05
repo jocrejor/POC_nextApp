@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nova notícia</title>
+    <script src="./crearNoticia.js"></script>
+</head>
+
+<body>
+    <button type="button" id="tornar">Tornar</button>
+    <h1>Nova notícia</h1>
+    <form id="elFormulari">
+        <br>
+
+        <div>
+            <label for="titol">Títol</label>
+            <input type="text" name="titol" id="titol" maxlength="50" pattern="[A-Za-zÀ-ÿñÑ0-9\s]{2,50}"
+                title="Introdueix entre 2 i 50 lletres" required>
+        </div>
+
+        <br>
+
+        <div>
+            <label for="subtitol">Subtítol</label>
+            <input type="text" name="subtitol" id="subtitol" maxlength="100" pattern="[A-Za-zÀ-ÿñÑ0-9\s]{5,100}"
+                title="Introdueix entre 5 i 100 lletres" required>
+        </div>
+
+        <br>
+
+        <div>
+            <label for="contingut">Contingut</label>
+            <textarea type="text" name="contingut" id="contingut" required></textarea>
+        </div>
+
+        <br>
+
+        <div>
+            <label for="data">Data</label>
+            <input type="date" name="data" id="data" required>
+        </div>
+
+        <br><br>
+
+        <div>
+            <button type="submit" name="enviar" id="enviar">Crear</button>
+        </div>
+        <p id="missatgeError"></p>
+    </form>
+</body>
+
+</html>

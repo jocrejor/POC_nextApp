@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="./crearimatges.js"></script>
+</head>
+
+<body>
+  <button type="button" id="tornar">Tornar</button>
+  <form id="elFormulari">
+    <div>
+      <label for="nom">Name</label>
+      <input type="text" id="nom" maxlength="15" pattern="[A-Za-zÀ-ÿñÑ\s]{2,100}"
+        title="Introdueix entre 2 i 100 lletres" required>
+    </div>
+    <div>
+      <label for="url">URL imatge</label>
+      <input type="text" id="url" maxlength="255" pattern="https?:\/\/.*\.(jpg|jpeg|png|gif|webp)$"
+        title="URL d'imatge vàlida (.jpg, .jpeg, .png, .gif, .webp)" required>
+    </div>
+    <div>
+      <label for="order">Ordre</label>
+      <input type="number" id="order" min="0" max="999999" step="1" title="Número enter positiu" required>
+    </div>
+    <div>
+      <input type="submit" id="enviar" value="Crear">
+    </div>
+    <p id="missatgeError" style="color:red; margin-top:10px;"></p>
+
+  </form>
+
+
+
+</body>
+
+</html>

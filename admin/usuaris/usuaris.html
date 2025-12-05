@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gestió d'Usuaris</title>
+<link rel="stylesheet" href="../css/normalize.css">
+<link rel="stylesheet" href="../css/template_grid3.css">
+<link rel="stylesheet" href="../css/common.css">
+<link rel="stylesheet" href="../css/common-table.css">
+<link rel="stylesheet" href="./css/usuaris.css">
+<script src="https://kit.fontawesome.com/f653e778a0.js" crossorigin="anonymous"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;400;700&family=Roboto:wght@100;400;700&display=swap" rel="stylesheet">
+<link rel="favicon" href="../img/logo_tenda.png">
+<script src="../../apiAccess/crud.js"></script>
+<script src="../js/common-table.js"></script>
+<script src="../js/common.js"></script>
+<script src="./js/usuaris.js"></script>
+</head>
+<body>
+    <div class="container-fluid sense-separacio">
+        <div class="row header">
+            <div class="col-12 centrar_header">
+                <div id="menu_hamburguesa">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+                <div id="logotip">
+                    <img src="../img/logo_tenda.png" alt="Logo">
+                </div>
+                <div id="sessioUsuari">
+                    <div class="headerUsuari">
+                        <img src="../img/foto_persona.png" alt="Foto Usuari">
+                        <span>Manolo Garibolo</span>
+                        <span class="separador">&nbsp;</span>
+                    </div>
+                    <div class="tancarSessio">
+                        <a href="#" id="btnLogout"><i class="fa-solid fa-arrow-right-from-bracket iconaTancarSessio"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row pagina">
+            <div class="col-12">
+                <p>Gestió d'usuaris</p>
+            </div>
+        </div>
+
+        <div class="row main">
+            <div id="menu_lateral" class="col-2">
+              <div class="opcio_seleccionada">
+                <i class="fa-solid fa-user"></i>Gestió Usuaris
+              </div>
+                <a href="../llistaContacte/llistaContacte.html" class="opcio_menu">
+                    <i class="fa-solid fa-address-book"></i>Gestió Contactes
+                </a>
+                <a href="../../noticies/index.html" class="opcio_menu">
+                    <i class="fa-solid fa-newspaper"></i>Gestió Noticies
+                </a>
+            </div>
+
+            <div class="col-10 contingut_main">
+                <div class="formulari-usuari">
+                    <h2 id="titolFormulari">Afegir Nou Usuari</h2>
+                    <form id="formulariUsuari" novalidate>
+                        <input type="hidden" id="userIdUsuari" value="-1">
+
+                        <div class="form-field">
+                            <label>Nom complet:</label>
+                            <input type="text" id="nomUsuari" required minlength="2" maxlength="100" pattern="[A-Za-zÀ-ÿ\s]{2,100}">
+                            <span class="error-message" id="nomUsuariError"></span>
+                        </div>
+
+                        <div class="form-field">
+                            <label>Correu electrònic:</label>
+                            <input type="email" id="emailUsuari" required>
+                            <span class="error-message" id="emailUsuariError"></span>
+                        </div>
+
+                        <div class="form-field">
+                            <label>Contrasenya:</label>
+                            <input type="password" id="passwordUsuari" minlength="8" maxlength="20" pattern=".{8,20}" required>
+                            <span class="error-message" id="passwordUsuariError"></span>
+                        </div>
+
+                        <div class="form-field">
+                            <label>Rol del Usuari:</label>
+                            <select id="rolUsuari" required>
+                                <option value="">Trieu un rol</option>
+                                <option value="editor">Editor</option>
+                                <option value="admin">Administrador</option>
+                            </select>
+                            <span class="error-message" id="rolUsuariError"></span>
+                        </div>
+
+                        <div class="botons-formulari">
+                            <button type="button" id="btnCancelar" class="ocult">Cancel·lar</button>
+                            <button type="submit" id="btnAfegir">Afegir Usuari</button>
+                            <button type="submit" id="btnActualitzar" style="display:none;">Actualitzar Usuari</button>
+                        </div>
+                    </form>
+
+                    <div id="missatgeError" class="missatge-error"></div>
+                    <div id="missatgeExit" class="missatge-exit"></div>
+                </div>
+
+                <div class="contador-usuaris">
+                    
+                    <span id="infoPaginacio" class="info-paginacio-header"></span>
+                </div>
+
+                <div class="container-fluid sense-separacio">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="noElements" id="senseUsuaris">
+                                <p>No hi ha usuaris registrats</p>
+                            </div>
+                            <div class="contingut">
+                                <table id="taula">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Nom</th>
+                                            <th>Email</th>
+                                            <th>Rol usuari</th>
+                                            <th>Accions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="llistaUsuaris"></tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="paginacio" class="paginacio" style="display:none;"></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

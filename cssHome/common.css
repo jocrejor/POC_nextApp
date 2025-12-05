@@ -1,0 +1,719 @@
+/* Variables de colors */
+:root {
+    --color-primari: #8ab3cf;
+    --color-secundari: #4180ab;
+    --color-fons: white;
+    --color-lletra-negra: black;
+    --color-lletra-blanca: white;
+    --color-vora-1: black;
+    --color-vora-2: rgb(207, 207, 207);
+}
+
+/* Estils generals */
+* {
+    font-family: "Inter";
+    color: var(--color-lletra);
+    text-decoration: none;
+    box-sizing: border-box;
+}
+
+/* Estils del header */
+
+.header {
+    border-bottom: 1px solid var(--color-lletra-negra);
+}
+
+.alinear_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#logotip {
+    position: relative;
+    display: flex;
+    align-items: center;  
+    flex: 1;
+}
+
+#logo {
+    width: 90px;
+    margin-top: 18px;
+    margin-bottom: 17px;
+}
+
+#menu_nav {
+    display: flex;
+    justify-content: center;
+    flex: 1;
+}
+
+#nav {
+    background-color: var(--color-fons); 
+    z-index: 999;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+}
+
+#nav li {
+    list-style: none;
+    padding: 18px;
+    padding-left: 26px;
+    padding-right: 27px;
+    border: 1px solid var(--color-lletra-negra);
+    border-left: none;
+}
+
+#nav li:first-child {
+    border-radius: 10px 0 0 10px;
+    border-left: 1px solid var(--color-lletra-negra);
+}
+
+#nav li:last-child {
+    border-radius: 0 10px 10px 0;
+}
+
+#nav li a, #nav li {
+    font-size: 1.05em;
+    font-weight: 600;
+}
+
+#nav li a {
+    display: flex;
+}
+
+#nav li:hover, .seleccionat {
+    background-color: var(--color-primari);
+}
+
+#nav li:hover a, #nav .seleccionat{
+    color: var(--color-lletra-blanca);
+}
+
+#header_icones {
+    word-spacing: 5px;
+}
+
+.icona {
+    font-size: 1.55em;
+}
+
+#menu_hamburguesa {
+    display: none;
+}
+
+/* Estils del main */
+
+.seccio {
+    padding: 60px 10%;
+}
+
+.align-center {
+    display: flex;
+    align-items: center;
+}
+
+.titol-petit {
+    font-weight: 600;
+    font-size: 1.1em;
+    display: block;
+    margin-bottom: 10px;
+    
+}
+
+h1 {
+    font-weight: 600;
+    font-size: 2.4rem;
+}
+
+h2 {
+    font-size: 2.2em;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.descripcio {
+    text-align: justify;
+    font-size: 1.1em;
+    line-height: 1.6;
+    color: var(--color-lletra-negra);
+    margin-bottom: 30px;
+    max-width: 90%;
+}
+
+/* Gestió de Colors de Fons */
+.seccio-blanca {
+    background-color: var(--color-fons);
+}
+
+.seccio-blava {
+    background-color: var(--color-primari); 
+}
+
+.seccio-blava h2, 
+.seccio-blava p {
+    color: var(--color-lletra-negra); 
+}
+
+/* Imatges */
+.img-content img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+/* Botons */
+.botons-grup {
+    display: flex;
+    gap: 80px;
+    margin-top: 20px;
+}
+
+.botons-grup.centro {
+    justify-content: center;
+}
+
+.btn {
+    padding: 12px 30px;
+    font-weight: 600;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    display: inline-block;
+    text-align: center;
+}
+
+.btn-outline {
+    background-color: transparent;
+    border: 2px solid var(--color-vora-1);
+    color: var(--color-lletra);
+}
+
+.btn-outline:hover {
+    background-color: var(--color-secundari);
+    color: var(--color-lletra-blanca);
+}
+
+.btn-solid {
+    background-color: var(--color-secundari);
+    border: 2px solid var(--color-vora-1);
+    color: var(--color-lletra-blanca);
+}
+
+.btn-solid:hover {
+    background-color: transparent;
+    color: var(--color-lletra-negra);
+}
+
+/* SECCIÓ PREMIS */
+.seccio-premios {
+    padding: 80px 10%;
+}
+
+.text-premios {
+    padding-right: 40px;
+}
+
+.text-premios h3 {
+    margin-top: 0;
+    font-size: 1.8em;
+    margin-bottom: 15px;
+}
+
+.contenedor-premios {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    justify-content: center;
+}
+
+.fila-logos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+}
+
+.logo-award {
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.logo-award:hover {
+    transform: scale(1.2);
+}
+
+.logo-award.round {
+    height: 90px;
+    width: auto;
+}
+
+.logo-award.square {
+    height: 70px;
+    width: auto;
+}
+
+/* SECCIÓ MARQUES */
+.seccio-marques {
+    padding: 60px 5%;
+    background-color: var(--color-fons);
+    text-align: center;
+}
+
+.subtitol-marques {
+    color: var(--color-lletra-negra);
+    margin-bottom: 50px;
+    font-size: 1.05em;
+}
+
+.contenedor-slider-marques {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+.grid-logos {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: auto auto;
+    row-gap: 40px;
+    column-gap: 20px;
+    justify-items: center;
+    align-items: center;
+}
+
+.grid-logos img {
+    max-width:100%;
+    max-height: 55px;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.grid-logos img:hover {
+    transform: scale(1.3);
+}
+
+/* Fletxes laterals */
+.fletxa-slider {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.2em;
+    color: var(--color-vora-2);
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.fletxa-slider:hover {
+    color: var(--color-primari);
+}
+
+.fletxa-slider.esquerra {
+    left: 0;
+}
+
+.fletxa-slider.dreta {
+    right: 0;
+}
+
+.center-text h3,p{
+    text-align: center;
+}
+
+
+/* Estils del footer */
+
+.footer {
+    position: relative;
+    border-top: 1px solid var(--color-vora-2);
+    border-bottom: 1px solid var(--color-vora-1);
+    z-index: 1;
+}
+
+.footer-contingut {
+    display: flex;
+    flex-direction: row;
+    padding-left: 9%;
+}
+
+.footer_element {
+    padding-top: 20px;
+    padding-right: 16px;
+}
+
+.titol_footer i {
+    display: none;
+}
+
+.footer_element h3 {
+    font-size: 1.1em;
+    margin-bottom: 0;
+    margin-left: 15px;
+}
+
+.footer_opcio {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.07em;
+    
+}
+
+.footer_opcio i {
+    position: relative;
+}
+
+.footer_link  {
+    margin-top: 39px;
+    line-height: 27px;
+    padding-bottom: 15px;
+}
+
+.footer_link p {
+    margin: 0;
+    margin-left: 15px;
+}
+
+.footer_opcio:hover p, .footer_opcio:hover i {
+    opacity: 0.7;
+}
+
+.xarxes {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    padding-top: 45px;
+    padding-left: 10px;
+}
+
+.xarxa {
+    flex: 0 0 calc(33.333% - 10px);
+}
+
+.xarxa a {
+    font-size: 1.6em;
+    line-height: 32px;
+    flex: 0 0 calc(33.333% - 10px);
+}
+
+.xarxa p {
+    display: none;
+}
+
+.icones_pagament {
+    margin: auto;
+}
+
+.pagament {
+    max-width: 215px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 15px;
+    padding-top: 15px;
+}
+
+.pagament img {
+    max-width: 55px;
+}
+
+#copyright {
+    text-align: center;
+    font-size: 1.11em;
+}
+
+/* Si l'ample de la pantalla es menor o igual a 767px */
+@media only screen and (max-width: 767px) {
+
+    /* Estils del header en telefon */
+
+    #logotip {
+        padding-left: 17px;
+        flex: 0;
+    }
+
+    #header_icones {
+        padding-right: 14px;
+    }
+
+    #menu_hamburguesa {
+        display: block;
+        font-size: 2.25em;
+        padding-right: 50px;  
+        padding-top: 20px;
+        padding-bottom: 20px;
+        cursor: pointer;
+    }
+
+    #logotip {
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    #logotip img {
+        width: 51px;
+    }
+
+    #nav {
+        display: none;
+        position: absolute;
+        top: 65%;
+        left: 15%;
+        width: 190px;
+        border: 2px solid var(--color-lletra-negra);
+        z-index: 999;
+        background-color: var(--color-fons);
+        border-radius: none;
+        padding: 0;
+        padding-left: 40px;
+        flex: 0;
+
+    }
+
+    #nav li {
+        list-style: none;
+        padding: 17.4px;
+        padding-left: 26px;
+        margin-left: -40px;
+        border: none;
+        border-radius: none;
+    }
+
+    #nav li a, #nav li {
+        font-size: 1.06em;
+        font-weight: 600;
+    }
+
+    #nav li:first-child, #nav li:last-child {
+        border-radius: 0px;
+        border: none;
+    }
+
+
+    /* Estils del main en telefon */
+
+    .align-center {
+        flex-direction: column;
+    }
+    
+    .seccio-blava .align-center {
+        flex-direction: column-reverse; 
+    }
+
+    .seccio {
+        padding: 40px 10% 5%;
+    }  
+
+    .text-content .botons-grup {
+        margin-top: 30px;
+        margin-bottom: 30px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .botons-grup .btn {
+        width: 200px;
+        text-align: center;
+    }
+
+    .center-text .botons-grup {
+        padding-top: 20px;
+    }
+
+    .titol-petit {
+        margin-top: 20px;
+    }
+
+    .main-content h1,h2 {
+        font-size: 2.7em;
+    }
+
+    .main-content h3 {
+        font-size: 2.5em;
+        text-align: center;
+    }
+    
+    .contenedor-slider-marques {
+        padding: 0 40px;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .fletxa-slider {
+        display: block;
+        z-index: 10;
+        background: var(--color-fons);
+        padding: 10px;
+        border-radius: 50%;
+    }
+    
+    .fletxa-slider.esquerra { 
+        left: 0; 
+    }
+
+    .fletxa-slider.dreta { 
+        right: 0; 
+    }
+
+    .grid-logos {
+        width: 200%;         
+        display: grid;
+        grid-template-columns: repeat(8, 1fr); 
+        grid-template-rows: repeat(2, auto);         
+        gap: 20px;
+        transition: transform 0.4s ease-in-out;        
+        margin: 0; 
+        padding: 10px 0;
+    }
+
+    .grid-logos img {
+        max-width: 100%;
+        height: auto;
+        max-height: 40px;
+    }
+
+
+    /* Estils del footer en telefon  */
+
+    .footer {
+        margin: 0;
+        padding: 0;
+    }
+
+    .separacio_footer {
+        margin: 0 !important; 
+        padding: 0 !important;
+    }
+
+    .footer-contingut {
+        width: auto;
+        display: flex;
+        padding: 0;
+    }
+
+    .footer_element {
+        display: flex;
+        width: 100%;
+        border: 1px solid var(--color-vora-2);
+        margin: 0;
+        padding: 0;
+        padding-bottom: 12px;
+        flex-direction: column;
+    }
+
+    .footer_element_seleccionat {
+        background-color: var(--color-vora-2);
+        padding-bottom: 0;
+    }
+    
+    .footer_element:last-child .titol_footer{
+        padding-bottom: 22px;
+    }
+
+    .footer_element.footer_element_seleccionat:last-child .titol_footer {
+        padding-bottom: 0 !important;
+    }
+
+    .titol_footer {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-left: 17px;
+        padding-top: 2px;
+    }
+
+    .titol_footer i {
+        display: flex;
+        font-size: 1.02em;
+        padding-right: 33px;
+    }
+
+    .titol_footer h3 {
+        font-size: 1.1em;
+        margin-left: 0px;
+    }
+
+    .footer_opcio {
+        display: none;
+        padding-left: 36px;
+    }
+
+    .footer_link, .xarxes {
+        background-color: var(--color-fons);
+        margin: 0;
+        padding: 0;
+        margin-top: 20px;
+    }
+
+    .footer_link a:first-child {
+        padding-top: 10px;
+    }
+
+    .footer_link a:last-child {
+        padding-bottom: 10px;
+    }
+
+    .footer_link i {
+        display: none;
+    }
+
+    .xarxes {
+        display: none;
+        gap: 0px;
+        padding: 0;
+        padding-top: 10px;
+        padding-bottom: 15px;
+    }
+
+    .xarxa {
+        display: flex;
+        justify-content: left;
+        align-items: center;
+        margin: 0;
+        padding-left: 97px;
+        margin-bottom: 18px;
+    }
+
+    .xarxa a {
+        font-size: 2.7em;
+        flex: none;
+    }
+
+    .xarxa p {
+        display: flex;
+        font-size: 1.15em;
+        margin: 0;
+        padding-left: 10px;
+    }
+
+    .icones_pagament {
+        padding-bottom: 18px;
+    }
+
+    .pagament {
+        max-width: none;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        padding-left: 35px;
+        padding-right: 35px;
+        padding-top: 15px;
+    }
+
+    .pagament img {
+        max-width: 55px;
+    }
+}

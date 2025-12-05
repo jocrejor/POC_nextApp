@@ -1,49 +1,51 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const form = document.getElementById("contactForm");
-
-  form.addEventListener("submit", (e) => {
+document.addEventListener("DOMContentLoaded",main);
+  
+async function main(){
+const form = document.getElementById("contactForm");
+  form.addEventListener("submit", async (e) => {
     e.preventDefault();
 
-    const name = document.getElementById("name").value.trim();
-    const email = document.getElementById("email").value.trim();
-    const phone = document.getElementById("phone").value.trim();
+    
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+
+    // 2) Recolectar valors (ja sabem que són vàlids)
+    const name    = document.getElementById("name").value.trim();
+    const email   = document.getElementById("email").value.trim();
+    const phone   = document.getElementById("phone").value.trim();
     const subject = document.getElementById("subject").value.trim();
 
-    // Validaciones
-    if (!name || !email || !subject) {
-      alert("Tots els camps obligatoris han d'estar emplenats.");
+    // Si vols restringir una mica els caràcters:
+    /*
+    const subjectRegex = /^[A-Za-zÀ-ÿ0-9\s.,!?¡¿-]{5,300}$/;
+    if (!subjectRegex.test(subject)) {
+      alert("L'assumpte conté caràcters no permesos.");
       return;
     }
+    */
 
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
-      alert("El correu electrònic no és vàlid.");
-      return;
-    }
-
-    if (phone && !/^\d{9,15}$/.test(phone)) {
-      alert("El telèfon ha de contenir només números (9-15 dígits).");
-      return;
-    }
-
-    // Crear un nuevo mensaje con la información del formulario
     const nouMissatge = {
-      id: Date.now(), // ID único basado en el timestamp
       name,
       email,
-      phone: phone || '',
+      phone: phone || "",
       subject,
       date: new Date().toISOString()
     };
 
-    // Obtener los mensajes guardados en localStorage (si existen)
-    let contactes = JSON.parse(localStorage.getItem("contactes")) || [];
-    // Agregar el nuevo mensaje al array de contactos
-    contactes.push(nouMissatge);
-    // Guardar el array actualizado en localStorage
-    localStorage.setItem("contactes", JSON.stringify(contactes));
+    try {
+      await postData(url, "Contact", nouMissatge);
 
-    alert("Missatge enviat correctament! Ens posarem en contacte aviat.");
-    form.reset(); // Limpiar el formulario después de enviar
+      alert("Missatge enviat correctament!");
+      form.reset();
+
+    } catch (error) {
+      console.error("Error enviant a la API:", error);
+      alert("Error enviant el missatge.");
+    }
   });
-});
+};
+
+
+

@@ -1,0 +1,414 @@
+/* Estils generals */
+* {
+    font-family: "Inter";
+    color: black;
+    text-decoration: none;
+}
+
+/* Estils del header */
+
+.header {
+    border-bottom: 1px solid black;
+}
+
+.alinear_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#logotip {
+    position: relative;
+    display: flex;
+    align-items: center;  
+    flex: 1;
+}
+
+#logo {
+    width: 90px;
+    margin-top: 18px;
+    margin-bottom: 17px;
+}
+
+#menu_nav {
+    display: flex;
+    justify-content: center;
+    flex: 1;
+}
+
+#nav {
+    background-color: white; 
+    z-index: 999;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+}
+
+#nav li {
+    list-style: none;
+    padding: 18px;
+    padding-left: 26px;
+    padding-right: 27px;
+    border: 1px solid black;
+    border-left: none;
+}
+
+#nav li:first-child {
+    border-radius: 10px 0 0 10px;
+    border-left: 1px solid black;
+}
+
+#nav li:last-child {
+    border-radius: 0 10px 10px 0;
+}
+
+#nav li a, #nav li {
+    font-size: 1.05em;
+    font-weight: 600;
+}
+
+#nav li a {
+    display: flex;
+}
+
+#nav li:hover, .seleccionat {
+    background-color: #8ab3cf;
+}
+
+#nav li:hover a, #nav .seleccionat{
+    color: white;
+}
+
+#header_icones {
+    word-spacing: 5px;
+}
+
+.icona {
+    font-size: 1.55em;
+}
+
+#menu_hamburguesa {
+    display: none;
+}
+
+/* Estils del main */
+
+.main {
+    position: relative;
+    z-index: 1;
+}
+
+.main p {
+    font-size: 1.11em;
+    text-align: center;
+    margin-top: 35px;
+    margin-bottom: 35px;
+}
+
+/* Estils del footer */
+
+.footer {
+    position: relative;
+    border-top: 1px solid rgb(207, 207, 207);
+    border-bottom: 1px solid black;
+    z-index: 1;
+}
+
+.footer-contingut {
+    display: flex;
+    flex-direction: row;
+    padding-left: 9%;
+}
+
+.footer_element {
+    padding-top: 20px;
+    padding-right: 16px;
+}
+
+.titol_footer i {
+    display: none;
+}
+
+.footer_element h3 {
+    font-size: 1.1em;
+    margin-bottom: 0;
+    margin-left: 15px;
+}
+
+.footer_opcio {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.07em;
+    
+}
+
+.footer_opcio i {
+    position: relative;
+}
+
+.footer_link  {
+    margin-top: 39px;
+    line-height: 27px;
+    padding-bottom: 15px;
+}
+
+.footer_link p {
+    margin: 0;
+    margin-left: 15px;
+}
+
+.footer_opcio:hover p, .footer_opcio:hover i {
+    color: #8b8b8b;
+}
+
+.xarxes {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    padding-top: 45px;
+    padding-left: 10px;
+}
+
+.xarxa {
+    flex: 0 0 calc(33.333% - 10px);
+}
+
+.xarxa a {
+    font-size: 1.6em;
+    line-height: 32px;
+    flex: 0 0 calc(33.333% - 10px);
+}
+
+.xarxa p {
+    display: none;
+}
+
+.icones_pagament {
+    margin: auto;
+}
+
+.pagament {
+    max-width: 215px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 15px;
+    padding-top: 15px;
+}
+
+.pagament img {
+    max-width: 55px;
+}
+
+#copyright {
+    text-align: center;
+    font-size: 1.11em;
+}
+
+/* Si l'ample de la pantalla es menor o igual a 767px */
+@media only screen and (max-width: 767px) {
+
+    /* Estils del header en telefon */
+
+    #logotip {
+        padding-left: 17px;
+        flex: 0;
+    }
+
+    #header_icones {
+        padding-right: 14px;
+    }
+
+    #menu_hamburguesa {
+        display: block;
+        font-size: 2.25em;
+        padding-right: 50px;  
+        padding-top: 20px;
+        padding-bottom: 20px;
+        cursor: pointer;
+    }
+
+    #logotip {
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    #logotip img {
+        width: 51px;
+    }
+
+    #nav {
+        display: none;
+        position: absolute;
+        top: 65%;
+        left: 15%;
+        width: 190px;
+        border: 2px solid black;
+        z-index: 999;
+        background-color: white;
+        border-radius: none;
+        padding: 0;
+        padding-left: 40px;
+        flex: 0;
+
+    }
+
+    #nav li {
+        list-style: none;
+        padding: 17.4px;
+        padding-left: 26px;
+        margin-left: -40px;
+        border: none;
+        border-radius: none;
+    }
+
+    #nav li a, #nav li {
+        font-size: 1.06em;
+        font-weight: 600;
+    }
+
+    #nav li:first-child, #nav li:last-child {
+        border-radius: 0px;
+        border: none;
+    }
+
+    /* Estils del footer en telefon  */
+
+    .footer {
+        margin: 0;
+        padding: 0;
+    }
+
+    .separacio_footer {
+        margin: 0 !important; 
+        padding: 0 !important;
+    }
+
+    .footer-contingut {
+        width: auto;
+        display: flex;
+        padding: 0;
+    }
+
+    .footer_element {
+        display: flex;
+        width: 100%;
+        border: 1px solid #eaeaea;
+        margin: 0;
+        padding: 0;
+        padding-bottom: 12px;
+        flex-direction: column;
+    }
+
+    .footer_element_seleccionat {
+        background-color: #e2e2e2;
+        padding-bottom: 0;
+    }
+    
+    .footer_element:last-child .titol_footer{
+        padding-bottom: 22px;
+    }
+
+    .footer_element.footer_element_seleccionat:last-child .titol_footer {
+        padding-bottom: 0 !important;
+    }
+
+    .titol_footer {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-left: 17px;
+        padding-top: 2px;
+    }
+
+    .titol_footer i {
+        display: flex;
+        font-size: 1.02em;
+        padding-right: 33px;
+    }
+
+    .titol_footer h3 {
+        font-size: 1.1em;
+        margin-left: 0px;
+    }
+
+    .footer_opcio {
+        display: none;
+        padding-left: 36px;
+    }
+
+    .footer_link, .xarxes {
+        background-color: white;
+        margin: 0;
+        padding: 0;
+        margin-top: 20px;
+    }
+
+    .footer_link a:first-child {
+        padding-top: 10px;
+    }
+
+    .footer_link a:last-child {
+        padding-bottom: 10px;
+    }
+
+    .footer_link i {
+        display: none;
+    }
+
+    .xarxes {
+        display: none;
+        gap: 0px;
+        padding: 0;
+        padding-top: 10px;
+        padding-bottom: 15px;
+    }
+
+    .xarxa {
+        display: flex;
+        justify-content: left;
+        align-items: center;
+        margin: 0;
+        padding-left: 97px;
+        margin-bottom: 18px;
+    }
+
+    .xarxa a {
+        font-size: 2.7em;
+        flex: none;
+    }
+
+    .xarxa p {
+        display: flex;
+        font-size: 1.15em;
+        margin: 0;
+        padding-left: 10px;
+    }
+
+    .icones_pagament {
+        padding-bottom: 18px;
+    }
+
+    .pagament {
+        max-width: none;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        padding-left: 35px;
+        padding-right: 35px;
+        padding-top: 15px;
+    }
+
+    .pagament img {
+        max-width: 55px;
+    }
+}

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Llistat contactes</title>
+
+    <link rel="stylesheet" href="../css/normalize.css">
+    <link rel="stylesheet" href="../css/template_grid3.css">
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/common-table.css">
+    <link rel="stylesheet" href="../css/common-paginacio.css">
+
+    <link rel="stylesheet" href="./css/usuaris.css">
+    <link rel="stylesheet" href="./css/llistacontactes.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        ref="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+
+    <script src="../js/common.js"></script>
+    <script src="../js/login.js"> </script>
+    <script src="../../apiAccess/crud.js" defer></script>
+    <script src="./js/llistaContacte.js" defer></script>
+
+    <script src="https://kit.fontawesome.com/f653e778a0.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+</head>
+
+<body>
+    <!-- Header -->
+    <div class="container-fluid sense-separacio">
+        <div class="row header">
+            <div class="col-12 centrar_header">
+                <div id="menu_hamburguesa">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+                <div id="logotip">
+                    <img src="../img/logo_tenda.png" alt="No s'ha pogut carregat l'imatge">
+                </div>
+                <div id="sessioUsuari">
+                    <div class="headerUsuari">
+                        <img src="../img/foto_persona.png" alt="No s'ha pogut carregar l'imatge">
+                        <span>Manolo Garibolo</span>
+                        <span class="separador">&nbsp;</span>
+                    </div>
+                    <div class="tancarSessio">
+                        <a href="#">
+                            <i class="fa-solid fa-arrow-right-from-bracket iconaTancarSessio"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Titol de la pàgina -->
+        <div class="row pagina">
+            <div class="col-12 titulo">
+                <p>Llista de Contactes</p>
+            </div>
+        </div>
+        <!-- Menu lateral -->
+        <div class="row main">
+            <div id="menu_lateral" class="col-2">
+                <a href="../usuaris/usuaris.html" class="opcio_menu">
+                    <i class="fa-solid fa-user"></i>Gestió Usuaris
+                </a>
+                <a href="../llistaContacte/llistaContacte.html" class="opcio_menu opcio_seleccionada">
+                    <i class="fa-solid fa-address-book"></i>Gestió Contactes
+                </a>
+                <a href="../noticies/index.html" class="opcio_menu">
+                    <i class="fa-solid fa-newspaper"></i>Gestió Noticies
+                </a>
+                <a href="../categories/index.html" class="opcio_menu">
+                    <i class="fa-solid fa-newspaper"></i>Gestió Categories
+                </a>
+            </div>
+            <!-- Contenido principal -->
+            <div id="menu_central" class="col-10">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="contactes-page-container">
+                                <!-- Controls de cerca -->
+                                <div class="controls">
+                                    <input type="text" id="searchInput"
+                                        placeholder="Cercar per nom, email o assumpte...">
+
+                                    <select id="sortSelect">
+                                        <option value="">Ordenar...</option>
+                                        <option value="date_desc">Data (més recents primer)</option>
+                                        <option value="date_asc">Data (més antics primer)</option>
+                                        <option value="name_asc">Nom (A → Z)</option>
+                                        <option value="name_desc">Nom (Z → A)</option>
+                                    </select>
+
+                                    <button id="clearSearch">Netejar</button>
+                                </div>
+
+
+
+                                <!-- SECCIÓN DETALLES DEL CONTACTO (se muestra arriba de la tabla) -->
+                                <div id="contactDetailSection" class="contact-detail-section">
+                                    <div class="detail-header">
+                                        <h3>Detall del Contacte</h3>
+                                        <div class="detail-actions">
+                                            <button id="editBtn" class="edit-btn">Editar</button>
+                                            <button id="deleteBtn" class="delete-btn">Eliminar</button>
+                                            <button id="closeDetailBtn" class="secondary-btn">Tancar</button>
+                                        </div>
+                                    </div>
+                                    <div id="contactDetail" class="contact-detail">
+                                        <!-- Detalls carregats per JS -->
+                                    </div>
+                                </div>
+
+                                <!-- SECCIÓN EDITAR CONTACTO (se muestra arriba de la tabla) -->
+                                <div id="editSection" class="edit-section">
+                                    <div class="edit-header">
+                                        <h3>Editar Contacte</h3>
+                                    </div>
+                                    <form id="editForm" class="edit-form">
+                                        <div class="form-row">
+                                            <div class="form-group">
+                                                <label for="editName">Nom complet:</label>
+                                                <input type="text" id="editName" name="name" required pattern="^[A-Za-zÀ-ÿ\s]+$" title="El nom només pot contenir lletres i espais.">
+
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="editEmail">Correu electrònic:</label>
+                                                <input type="email" id="editEmail" name="email" required>
+                                            </div>
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="form-group">
+                                                <label for="editPhone">Telèfon:</label>
+                                                <input   type="tel" id="editPhone" name="phone" pattern="^\+?[0-9 ]+$" title="El telèfon només pot contenir números, espais i, opcionalment, un + al principi.">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="editSubject">Assumpte:</label>
+                                                <input type="text" id="editSubject" name="subject" required>
+                                            </div>
+                                        </div>
+                                        <div class="form-actions">
+                                            <button type="submit" class="save-btn">Guardar Canvis</button>
+                                            <button type="button" id="cancelEditBtn"
+                                                class="secondary-btn">Cancel·lar</button>
+                                        </div>
+                                    </form>
+                                </div>
+
+                                <!-- MODAL CONFIRMAR ELIMINACIÓ CONTACTE -->
+                                <div id="confirmModal" class="contactes-modal">
+                                    <div class="modal-content confirm-modal">
+                                        <h3>Eliminar contacte</h3>
+                                        <p>Estàs segur que vols eliminar aquest contacte?</p>
+                                        <div class="modal-actions">
+                                            <button id="confirmDeleteBtn" class="save-btn">Eliminar</button>
+                                            <button id="cancelDeleteBtn" class="secondary-btn">Cancel·lar</button>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <!-- CONTENIDOR DE LA TABLA -->
+                                <div id="contactesList" class="contactes-list">
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

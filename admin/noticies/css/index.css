@@ -1,0 +1,35 @@
+.contingut_main, .contingut .row > div {
+    padding: 0;
+}
+
+.inputs {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    opacity: 50%;
+}
+
+.buscador-box {
+    display: flex;
+    align-items: center;
+}
+
+.buscador-box label {
+    padding-left: 1em;
+}
+
+#buscador, #checknoticies {
+    width: auto;
+}
+
+#taulaNoticies {
+    display: inline-block;
+    border: 1px solid;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+#taulaNoticies th, #taulaNoticies td {
+    border: 1px solid;
+    padding: 0.5em;
+}

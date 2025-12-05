@@ -1,0 +1,77 @@
+
+* {
+
+    box-sizing: border-box;
+}
+
+.noMargin{
+  margin-right: 0;
+  margin-left: 0;
+  padding-right: 0;
+  padding-left: 0;
+}
+
+.separacio{
+  margin-top: 0em;
+  margin-bottom: 0em;
+  padding-bottom: 0.3em;
+  padding-top: 0.3em;
+}
+
+/*******************************************  PART CENTRAL  *******************************************************************/
+
+.bloqueCompania{
+  display: flex;
+  align-items: center;
+  margin-top: 3em;
+  margin-bottom: 3em;
+}
+
+.textoCompania{
+  display: flex;
+  flex-direction: column;
+}
+
+h4{
+  color: var(--color-secundari);
+  font-weight: bold;
+  padding-bottom: 0.5em;
+}
+
+h2{
+    padding-bottom: 0.5em;
+}
+
+.imgCompania{
+  width: 450px;
+  height: auto;
+}
+
+.margin{
+  padding-left: 4em;
+}
+
+.cursorDefault{
+  cursor: default;
+}
+
+/*************************  PART RESPONSIVE  **************************************/
+
+@media (max-width: 768px) {
+  .bloqueCompania{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .textoCompania{
+    display: flex;
+    justify-content: flex-start;
+    padding: 0px;
+    order: 2;
+  }
+  .imgCompania{
+    order: 1;
+    margin-bottom: 1em;
+  }
+
+}

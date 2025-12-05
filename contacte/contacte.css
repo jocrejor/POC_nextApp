@@ -1,67 +1,212 @@
-body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(to bottom right, #e3f2fd, #f1f8e9);
-  margin: 0;
-  padding: 0;
-}
+/* =======================
+   Formulari de contacte
+   ======================= */
 
 .container-contacte {
-  max-width: 500px;
-  background: #fff;
-  padding: 2rem;
-  margin: 2rem auto;
-  border-radius: 16px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    margin: 40px auto 60px;
+    padding: 24px 28px;
+    background: var(--color-fons);
+    border-radius: 8px;
+    border: 1px solid var(--color-vora-2);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
 }
 
-h2 {
-  text-align: center;
-  color: #1976d2;
-  margin-bottom: 0.5rem;
+/* Títol + text intro */
+.container-contacte h2 {
+    text-align: left;
+    margin-bottom: 8px;
+    color: var(--color-primari);
+    font-size: 1.9rem;
+    font-weight: 700;
 }
 
-p {
-  text-align: center;
-  color: #555;
-  margin-bottom: 2rem;
+.container-contacte p {
+    text-align: left;
+    margin-bottom: 24px;
+    color: var(--color-lletra-negra);
+    font-size: 0.98rem;
+    line-height: 1.6;
 }
 
-label {
-  display: block;
-  margin-top: 1rem;
-  font-weight: 600;
-  color: #333;
+/* Layout principal */
+.form-layout {
+    display: flex;
+    gap: 28px;
+    align-items: flex-start;
 }
 
-input, textarea {
-  width: 100%;
-  padding: 0.75rem;
-  margin-top: 0.25rem;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  font-size: 1rem;
-  transition: border-color 0.3s;
+.form-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
 }
 
-input:focus, textarea:focus {
-  border-color: #1976d2;
-  outline: none;
+.subject-column {
+    flex: 1.2;
 }
 
-button {
-  display: block;
-  width: 100%;
-  margin-top: 1.5rem;
-  background-color: #1976d2;
-  color: white;
-  border: none;
-  padding: 0.75rem;
-  font-size: 1rem;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background 0.3s;
+.form-group {
+    display: flex;
+    flex-direction: column;
 }
 
-button:hover {
-  background-color: #1565c0;
+/* Etiquetes */
+#contactForm label {
+    font-weight: 600;
+    color: var(--color-secundari);
+    margin-bottom: 6px;
+    font-size: 0.9rem;
 }
+
+/* Inputs */
+#contactForm input {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid var(--color-vora-2);
+    border-radius: 4px;
+    font-size: 0.95rem;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    background: var(--color-fons);
+    box-sizing: border-box;
+}
+
+/* Textarea */
+#contactForm textarea {
+    width: 100%;
+    height: 180px;
+    padding: 12px 14px;
+    border: 1px solid var(--color-vora-2);
+    border-radius: 4px;
+    font-size: 0.95rem;
+    font-family: inherit;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    background: var(--color-fons);
+    box-sizing: border-box;
+    resize: vertical;
+    line-height: 1.5;
+}
+
+/* Focus */
+#contactForm input:focus,
+#contactForm textarea:focus {
+    outline: none;
+    border-color: var(--color-secundari);
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.12);
+}
+
+/* Botó enviar */
+#sendBtn {
+    background: var(--color-secundari);
+    color: #fff;
+    border: none;
+    padding: 12px 28px;
+    border-radius: 4px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    width: auto;
+    margin-top: 22px;
+    margin-left: 15px;
+    
+}
+
+#sendBtn:hover {
+    background: #2980b9;
+    transform: translateY(-1px);
+}
+
+/* Tarjeta info superior */
+.contact-info-card {
+    margin-top: 15px;
+    margin-bottom: 22px;
+    padding: 30px 50px;
+    border-radius: 6px;
+    background-color: var(--color-vora-2);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.contact-info-card h1 {
+    margin: 0 0 8px;
+    font-weight: 700;
+    color: var(--color-secundari);
+}
+
+.contact-info-card p {
+    text-align: justify !important;
+    margin: 0;
+    font-size: 1rem !important;
+    line-height: 1.6;
+    color: var(--color-lletra-negra);
+}
+
+/* =======================
+   Responsive fins a 767px
+   ======================= */
+@media (max-width: 767px) {
+
+    /* Card de arriba + formulario con margen lateral */
+    .contact-info-card,
+    .container-contacte {
+        margin: 20px 12px 24px;
+        padding: 16px 14px;
+    }
+
+    .contact-info-card {
+        padding: 16px 14px;
+    }
+
+    .contact-info-card h1 {
+        font-size: 1.3rem;
+    }
+
+    .contact-info-card p {
+        font-size: 0.9rem;
+    }
+
+    /* Formulario en una sola columna y CENTRADO */
+    .form-layout {
+        flex-direction: column;
+        gap: 18px;
+        align-items: center;          /* centra el contenido del flex */
+    }
+
+    .form-column,
+    .subject-column {
+        width: 100%;
+        max-width: 420px;             /* ancho máximo de los campos */
+        margin: 0 auto;               /* centrado horizontal */
+    }
+
+    /* Inputs y textarea algo más pequeños */
+    #contactForm input,
+    #contactForm textarea {
+        font-size: 0.9rem;
+    }
+
+    #contactForm textarea {
+        height: 140px;
+    }
+
+    /* Botón a ancho completo y centrado */
+    #sendBtn {
+        width: 100%;
+        text-align: center;
+        margin-left: 0;
+        margin-top: 18px;
+        max-width: 420px;
+        display: block;
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    /* Título del formulario un poco más pequeño */
+    .container-contacte h2,
+    .container-contacte h3 {
+        font-size: 1.3rem;
+        text-align: center;
+    }
+}
+
+

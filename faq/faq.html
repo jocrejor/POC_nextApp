@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - Preguntas Frecuentes</title>
+    <link rel="stylesheet" href="../css/normalize.css">
+    <link rel="stylesheet" href="../css/template_grid3.css">
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="css/faq.css">
+
+    <script src="https://kit.fontawesome.com/f653e778a0.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
+    <script type="text/javascript" src="js/faq.js"></script>
+    <script type="text/javascript" src="../js/login.js"></script>
+</head>
+
+<body>
+    <div class="container-fluid separacio_footer">
+        <!-- Header -->
+        <div class="row header">
+            <div class="col-12 alinear_header">
+                <div id="logotip">
+                    <i id="menu_hamburguesa" class="fa-solid fa-bars"></i>
+                    <a href="../index.html">
+                        <img id="logo" src="img/logo_tenda.png" alt="No s'ha pogut carregar l'imatge">
+                    </a>
+                    <div id="menu_nav">
+                        <ul id="nav">
+                            <li><a href="../home/index.html ">Home</a></li>
+                            <li><a href="../compania/compania.html ">Compañia</a></li>
+                            <li><a href="../contacte/contacte.html ">Demo</a></li>
+                            <li><a href="../producte/preus.html ">Precios</a></li>
+                            <li><a href="../noticies/index.html ">Noticias</a></li>
+                            <li><a href="../desenvolupadors/desenvolupadors.html ">Desarrolladores</a></li>
+                            <li><a href="../contacte/contacte.html ">Contactar</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div id="header_icones">
+                    <a href="../faq/faq.html"><i class="fa-regular fa-circle-question icona"></i></a>
+                    <a href="#"><i class="fa-regular fa-moon icona"></i></a>
+                    <a href="#"><i class="fa-solid fa-globe icona"></i></a>
+                    <a href="../admin/login.html"><i class="fa-regular fa-user icona"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main -->
+        <div class="row main">
+            <div class="col-12">
+                <div class="faq-container">
+                    <h1 class="faq-title">Preguntas Frecuentes (FAQ)</h1>
+                    <p class="faq-subtitle">Encuentra respuestas a las preguntas más comunes sobre nuestros productos y
+                        servicios.</p>
+
+                    <!-- Buscador de FAQs -->
+                    <div class="faq-search">
+                        <div class="search-container">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                            <input type="text" id="faqSearch" placeholder="Buscar en preguntas frecuentes...">
+                        </div>
+                    </div>
+
+                    <!-- Preguntas destacadas (NUEVA SECCIÓN) -->
+                    <div class="faq-destacadas">
+                        <h3 class="destacadas-titulo">Preguntas más frecuentes</h3>
+                        <div class="destacadas-botones">
+                            <button class="destacada-btn" data-faq="1">Crear una cuenta</button>
+                            <button class="destacada-btn" data-faq="2">Métodos de pago</button>
+                            <button class="destacada-btn" data-faq="6">Prueba gratuita</button>
+                            <button class="destacada-btn" data-faq="3">Cancelar suscripción</button>
+                            <button class="destacada-btn" data-faq="7">Protección de datos</button>
+                        </div>
+                    </div>
+
+                    <!-- Lista de FAQs -->
+                    <div class="faq-list">
+                        <h3 class="faq-list-title">Todas las preguntas frecuentes</h3>
+                        <!-- FAQ Item 1 -->
+                        <div class="faq-item" data-faq-id="1">
+                            <div class="faq-question">
+                                <h3>¿Cómo puedo crear una cuenta en la plataforma?</h3>
+                                <i class="fa-solid fa-plus"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Para crear una cuenta, haz clic en el botón "Registrarse" en la esquina superior
+                                    derecha de nuestra página web. Necesitarás proporcionar tu dirección de correo
+                                    electrónico, crear una contraseña segura y completar algunos datos básicos.
+                                    Recibirás un correo de confirmación para activar tu cuenta.</p>
+                            </div>
+                        </div>
+
+                        <!-- FAQ Item 2 -->
+                        <div class="faq-item" data-faq-id="2">
+                            <div class="faq-question">
+                                <h3>¿Cuáles son los métodos de pago aceptados?</h3>
+                                <i class="fa-solid fa-plus"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Aceptamos una amplia variedad de métodos de pago incluyendo tarjetas de
+                                    crédito/débito (Visa, Mastercard, Maestro), PayPal, Google Pay y Apple Pay. Todos
+                                    los pagos son procesados de forma segura mediante encriptación SSL de 256 bits.</p>
+                            </div>
+                        </div>
+
+                        <!-- FAQ Item 3 -->
+                        <div class="faq-item" data-faq-id="3">
+                            <div class="faq-question">
+                                <h3>¿Puedo cancelar mi suscripción en cualquier momento?</h3>
+                                <i class="fa-solid fa-plus"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Sí, puedes cancelar tu suscripción en cualquier momento desde la sección
+                                    "Configuración de cuenta" → "Suscripción". Al cancelar, tu plan permanecerá activo
+                                    hasta el final del período de facturación actual y no se realizarán cargos
+                                    adicionales.</p>
+                            </div>
+                        </div>
+
+                        <!-- FAQ Item 4 -->
+                        <div class="faq-item" data-faq-id="4">
+                            <div class="faq-question">
+                                <h3>¿Ofrecen soporte técnico?</h3>
+                                <i class="fa-solid fa-plus"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Sí, ofrecemos soporte técnico de lunes a viernes de 9:00 a 18:00. Puedes contactarnos
+                                    a través del correo electrónico a soporte@nexapp.com, o por teléfono al +34 900 123
+                                    456. Para planes Enterprise ofrecemos soporte prioritario.</p>
+                            </div>
+                        </div>
+
+                        <!-- FAQ Item 5 -->
+                        <div class="faq-item" data-faq-id="5">
+                            <div class="faq-question">
+                                <h3>¿Es posible migrar mis datos desde otra plataforma?</h3>
+                                <i class="fa-solid fa-plus"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Sí, ofrecemos un servicio de migración de datos asistido para clientes con planes
+                                    Enterprise. Para planes Basic y Pro, proporcionamos herramientas de auto-migración y
+                                    documentación detallada. Contacta con nuestro equipo de ventas para más información
+                                    sobre migraciones complejas.</p>
+                            </div>
+                        </div>
+
+                        <!-- FAQ Item 6 -->
+                        <div class="faq-item" data-faq-id="6">
+                            <div class="faq-question">
+                                <h3>¿Tienen una versión gratuita o de prueba?</h3>
+                                <i class="fa-solid fa-plus"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Sí, ofrecemos una prueba gratuita de 14 días para todos nuestros planes pagos, sin
+                                    necesidad de tarjeta de crédito. También tenemos un plan Free con funcionalidades
+                                    básicas limitadas que puedes usar indefinidamente.</p>
+                            </div>
+                        </div>
+
+                        <!-- FAQ Item 7 -->
+                        <div class="faq-item" data-faq-id="7">
+                            <div class="faq-question">
+                                <h3>¿Cómo protegen mis datos personales?</h3>
+                                <i class="fa-solid fa-plus"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Implementamos medidas de seguridad de última generación incluyendo encriptación
+                                    end-to-end, servidores ubicados en la UE certificados bajo GDPR, auditorías de
+                                    seguridad regulares y cumplimiento de normativas internacionales de protección de
+                                    datos. Consulta nuestra Política de Privacidad para más detalles.</p>
+                            </div>
+                        </div>
+
+                        <!-- FAQ Item 8 -->
+                        <div class="faq-item" data-faq-id="8">
+                            <div class="faq-question">
+                                <h3>¿Puedo cambiar entre planes en cualquier momento?</h3>
+                                <i class="fa-solid fa-plus"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Sí, puedes cambiar entre planes en cualquier momento desde tu panel de control. Al
+                                    actualizar a un plan superior, el cambio es inmediato y se te facturará
+                                    prorrateadamente. Al bajar a un plan inferior, el cambio se aplicará al inicio de tu
+                                    próximo ciclo de facturación.</p>
+                            </div>
+                        </div>
+
+                        <!-- FAQ Item 9 -->
+                        <div class="faq-item" data-faq-id="9">
+                            <div class="faq-question">
+                                <h3>¿Qué diferencia hay entre los planes Basic, Pro y Enterprise?</h3>
+                                <i class="fa-solid fa-plus"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>El plan Basic incluye funcionalidades esenciales para usuarios individuales. El plan
+                                    Pro añade herramientas avanzadas, mayor capacidad de almacenamiento y soporte
+                                    prioritario. El plan Enterprise ofrece funcionalidades personalizadas, integraciones
+                                    específicas, SLA garantizado y soporte técnico dedicado.</p>
+                            </div>
+                        </div>
+
+                        <!-- FAQ Item 10 -->
+                        <div class="faq-item" data-faq-id="10">
+                            <div class="faq-question">
+                                <h3>¿Hay límite en el número de usuarios por cuenta?</h3>
+                                <i class="fa-solid fa-plus"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>El plan Basic permite 1 usuario, el plan Pro permite hasta 5 usuarios, y el plan
+                                    Enterprise permite usuarios ilimitados. En el plan Enterprise, puedes gestionar
+                                    permisos y roles de usuario de forma avanzada desde el panel de administración.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Contacto adicional -->
+                    <div class="faq-contact">
+                        <div class="contact-card">
+                            <i class="fa-regular fa-circle-question"></i>
+                            <h3>¿No encuentras tu respuesta?</h3>
+                            <p>Nuestro equipo de soporte está aquí para ayudarte</p>
+                            <div class="contact-buttons">
+                                <a href="../contacte/contacte.html" class="contact-btn">
+                                    <i class="fa-regular fa-envelope"></i>
+                                    Contactar por email
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="row footer">
+            <div class="col-9 separacio_footer">
+                <div class="container-fluid">
+                    <div class="row footer-contingut">
+                        <div class="col-3 footer_element">
+                            <div class="titol_footer">
+                                <h3>Nuestro producto</h3>
+                                <i class="fa-solid fa-chevron-down"></i>
+                            </div>
+                            <div class="footer_link">
+                                <a href="../preus/preus.html " class="footer_opcio">
+                                    <p>Planes y Precios</p>
+                                    <i class="fa-solid fa-chevron-right"></i>
+                                </a>
+                                <a href="../contacte/contacte.html" class="footer_opcio">
+                                    <p>Solicitar demo</p>
+                                    <i class="fa-solid fa-chevron-right"></i>
+                                </a>
+                                <a href="../com_funciona/com_funciona.html" class="footer_opcio">
+                                    <p>Como funciona</p>
+                                    <i class="fa-solid fa-chevron-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-3 footer_element">
+                            <div class="titol_footer">
+                                <h3>Quién somos</h3>
+                                <i class="fa-solid fa-chevron-down"></i>
+                            </div>
+                            <div class="footer_link">
+                                <a href="../compania/compania.html " class="footer_opcio">
+                                    <p>Sobre nosotros</p>
+                                    <i class="fa-solid fa-chevron-right"></i>
+                                </a>
+                                <a href="../noticies/index.html " class="footer_opcio">
+                                    <p>Noticias</p>
+                                    <i class="fa-solid fa-chevron-right"></i>
+                                </a>
+                                <a href="../premios/premios.html " class="footer_opcio">
+                                    <p>Premios y reconocimientos</p>
+                                    <i class="fa-solid fa-chevron-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-3 footer_element">
+                            <div class="titol_footer">
+                                <h3>Soporte legal</h3>
+                                <i class="fa-solid fa-chevron-down"></i>
+                            </div>
+                            <div class="footer_link">
+                                <a href="../FAQ/faq.html " class="footer_opcio">
+                                    <p>Centro de ayuda</p>
+                                    <i class="fa-solid fa-chevron-right"></i>
+                                </a>
+                                <a href="../contacte/contacte.html " class="footer_opcio">
+                                    <p>Contacto</p>
+                                    <i class="fa-solid fa-chevron-right"></i>
+                                </a>
+                                <a href="../politica_privacidad.html" class="footer_opcio">
+                                    <p>Política de privacidad</p>
+                                    <i class="fa-solid fa-chevron-right"></i>
+                                </a>
+                                <a href="../Terminis_Condicions/terminis_condicions.html" class="footer_opcio">
+                                    <p>Términos y condiciones</p>
+                                    <i class="fa-solid fa-chevron-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-3 footer_element">
+                            <div class="titol_footer">
+                                <h3>Comunidad</h3>
+                                <i class="fa-solid fa-chevron-down"></i>
+                            </div>
+                            <div class="xarxes">
+                                <div class="xarxa">
+                                    <a href="https://www.instagram.com/" target="_blank"><i
+                                            class="fa-brands fa-instagram"></i></a>
+                                    <p>Instagram</p>
+                                </div>
+                                <div class="xarxa">
+                                    <a href="https://www.facebook.com/" target="_blank"><i
+                                            class="fa-brands fa-facebook"></i></a>
+                                    <p>Facebook</p>
+                                </div>
+                                <div class="xarxa">
+                                    <a href="https://x.com/" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
+                                    <p>X-Twitter</p>
+                                </div>
+                                <div class="xarxa">
+                                    <a href="https://www.youtube.com/" target="_blank"><i
+                                            class="fa-brands fa-youtube"></i></a>
+                                    <p>Youtube</p>
+                                </div>
+                                <div class="xarxa">
+                                    <a href="https://web.telegram.org/k/" target="_blank"><i
+                                            class="fa-brands fa-telegram"></i></a>
+                                    <p>Telegram</p>
+                                </div>
+                                <div class="xarxa">
+                                    <a href="https://www.tiktok.com/" target="_blank"><i
+                                            class="fa-brands fa-tiktok"></i></a>
+                                    <p>Tik-Tok</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-3 icones_pagament">
+                <div class="pagament">
+                    <img src="img/maestro.png" alt="No s'ha carregat be la imatge">
+                    <img src="img/master.png" alt="No s'ha carregat be la imatge">
+                    <img src="img/visa.png" alt="No s'ha carregat be la imatge">
+                </div>
+                <div class="pagament">
+                    <img src="img/pal.png" alt="No s'ha carregat be la imatge">
+                    <img src="img/gpay.png" alt="No s'ha carregat be la imatge">
+                    <img src="img/apay.png" alt="No s'ha carregat be la imatge">
+                </div>
+            </div>
+        </div>
+        <!-- Copyright -->
+        <div class="row">
+            <div class="col-12">
+                <p id="copyright">@2025 NexApp. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

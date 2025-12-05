@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visualitzar notícies</title>
+    <link rel="stylesheet" href="./css/grid.css">
+    <link rel="stylesheet" href="./css/normalize.css">
+    <link rel="stylesheet" href="../css/common.css">      <!-- Comú -->
+    <link rel="stylesheet" href="../css/common-table.css">      <!-- Comú -->
+    <link rel="stylesheet" href="./css/index.css">
+    <script src="https://kit.fontawesome.com/d9f0c40e4f.js" crossorigin="anonymous"></script>      <!-- Font Awesome -->
+    <script src="../../apiAccess/crud.js"></script>
+    <script src="../js/common.js"></script>      <!-- Comú -->
+    <script src="./visualitzarNoticia.js" defer></script>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row header">
+            <div class="col-12 centrar_header">
+                <div id="menu_hamburguesa">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+                <div id="logotip">
+                    <img src="../img/logo_tenda.png" alt="Logo">
+                </div>
+                <div id="sessioUsuari">
+                    <div class="headerUsuari">
+                        <img src="../img/foto_persona.png" alt="Foto Usuari">
+                        <span>Manolo Garibolo</span>
+                        <span class="separador">&nbsp;</span>
+                    </div>
+                    <div class="tancarSessio">
+                        <a href="#"><i class="fa-solid fa-arrow-right-from-bracket iconaTancarSessio"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row pagina">
+            <div class="col-12">
+                <p>Notícia</p>
+            </div>
+        </div>
+
+        <div class="row main">
+            <div id="menu_lateral" class="col-2">
+                <a href="../usuaris/usuaris.html" class="opcio_menu">
+                    <i class="fa-solid fa-user"></i>Gestió Usuaris
+                </a>
+                <a href="../llistaContacte/llistaContacte.html" class="opcio_menu">
+                    <i class="fa-solid fa-address-book"></i>Gestió Contactes
+                </a>
+                <a href="./index.html" class="opcio_menu">
+                    <i class="fa-solid fa-newspaper"></i>Gestió Noticies
+                </a>
+            </div>
+
+            <div class="col-10 contingut_main">
+                <div class="container-fluid contingut">
+                    <button onclick="window.location.href='./index.html'" class="boto-retorn">
+                        <i class="fa-solid fa-arrow-left"></i> Tornar
+                    </button>
+
+                    <div id="noticiaBox" class="fitxa-noticia"></div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>
