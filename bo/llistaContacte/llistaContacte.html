@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="ca">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Llista de Contactes</title>
+  <link rel="stylesheet" href="llistaContacte.css">
+  <!--ESTILS BASE-->
+  <link rel="stylesheet" href="/webcorporativa/css/normalize.css">
+  <!-- GRID BASE-->
+  <link rel="stylesheet" href="/webcorporativa/css/template_grid3.css">
+  <!-- ESTILS ESPECÍFICS -->
+  <link rel="stylesheet" href="/webcorporativa/css/styles1.css">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+  <script src="/webcorporativa/apiAccess/crud.js" defer></script>
+  <script src="llistaContacte.js" defer></script>
+</head>
+
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="container-fluid">
+      <div class="row align-center">
+        <div class="col-2">
+          <div class="header-left">
+            <div class="hamburger">
+              <i class="fa-solid fa-bars"></i>
+            </div>
+            <div class="logo">
+              <img src="/webcorporativa/img/logo_tenda.png" alt="NexApp Logo">
+            </div>
+          </div>
+        </div>
+        <div class="col-8">
+          <nav class="main-nav">
+            <div class="navLink">
+              <div><a href="/webcorporativa/index.html" class="nav-item">Home</a></div>
+              <div><a href="#compania" class="nav-item">Compañia</a></div>
+              <div><a href="#demo" class="nav-item">Demo</a></div>
+              <div><a href="#precios" class="nav-item">Precios</a></div>
+              <div><a href="#noticias" class="nav-item">Noticias</a></div>
+              <div><a href="#desarrolladores" class="nav-item">Desarrolladores</a></div>
+              <div><a href="/webcorporativa/contacte/contacte.html" class="nav-item">Contactar</a></div>
+            </div>
+          </nav>
+        </div>
+
+        <div class="col-2">
+          <nav class="main-ico">
+            <ul>
+              <li><i class="fa-regular fa-circle-question"></i></li>
+              <li><i class="fa-regular fa-moon"></i></li>
+              <li><i class="fa-solid fa-globe"></i></li>
+              <li><i class="fa-regular fa-user"></i></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+  <!-- Contingut principal -->
+  <main class="main-content">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div>
+            <h2>Llista de Contactes</h2>
+            <p>Gestiona els contactes que s'han posat en contacte amb nosaltres.</p>
+
+            <div class="controls">
+              <input type="text" id="searchInput" placeholder="Cercar per nom, email o assumpte...">
+              <button id="clearSearch">Netejar cerca</button>
+            </div>
+
+            <div id="contactesList" class="contactes-list">
+              <!-- Els contactes es carregaran aquí dinàmicament -->
+            </div>
+
+            <div class="actions">
+              <button id="backBtn" class="secondary-btn"><a href="/webcorporativa/contacte/contacte.html" style="text-decoration: none; color: white;">Tornar a Contacte</a></button>
+            </div>
+          </div>
+
+          <!-- Modal per veure detalls -->
+          <div id="detailModal" class="modal">
+            <div class="modal-content">
+              <span class="close">&times;</span>
+              <h3>Detall del Contacte</h3>
+              <div id="contactDetail" class="contact-detail">
+                <!-- Els detalls es carregaran aquí -->
+              </div>
+              <div class="modal-actions">
+                <button id="editBtn" class="edit-btn">Editar</button>
+                <button id="deleteBtn" class="delete-btn">Eliminar</button>
+                <button id="closeDetailBtn" class="secondary-btn">Tancar</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Modal per editar -->
+          <div id="editModal" class="modal">
+            <div class="modal-content">
+              <span class="close">&times;</span>
+              <h3>Editar Contacte</h3>
+              <form id="editForm">
+                <div class="form-group">
+                  <label for="editName">Nom complet:</label>
+                  <input type="text" id="editName" name="name" required>
+                </div>
+
+                <div class="form-group">
+                  <label for="editEmail">Correu electrònic:</label>
+                  <input type="email" id="editEmail" name="email" required>
+                </div>
+
+                <div class="form-group">
+                  <label for="editPhone">Telèfon:</label>
+                  <input type="tel" id="editPhone" name="phone">
+                </div>
+
+                <div class="form-group">
+                  <label for="editSubject">Assumpte:</label>
+                  <input type="text" id="editSubject" name="subject" required>
+                </div>
+
+                <div class="modal-actions">
+                  <button type="submit" class="save-btn">Guardar Canvis</button>
+                  <button type="button" id="cancelEditBtn" class="secondary-btn">Cancel·lar</button>
+                </div>
+              </form>
+            </div>
+          </div>
+
+          <!-- Modal de confirmació -->
+          <div id="confirmModal" class="modal">
+            <div class="modal-content confirm-modal">
+              <h3>Confirmar Eliminació</h3>
+              <p>Estàs segur que vols eliminar aquest contacte? Aquesta acció no es pot desfer.</p>
+              <div class="modal-actions">
+                <button id="confirmDeleteBtn" class="delete-btn">Sí, Eliminar</button>
+                <button id="cancelDeleteBtn" class="secondary-btn">Cancel·lar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+  <!-- Footer  -->
+  <footer class="footer">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-5-equal">
+          <h3 class="footer-toggle">Nuestro producto</h3>
+          <ul>
+            <li><a href="#">Planes y Precios</a><i class="fa-solid fa-chevron-right"></i></li>
+            <li><a href="#">Solicitar demo</a><i class="fa-solid fa-chevron-right"></i></li>
+            <li><a href="#">Como funciona</a><i class="fa-solid fa-chevron-right"></i></li>
+          </ul>
+        </div>
+        <div class="col-5-equal">
+          <h3 class="footer-toggle">Quién somos</h3>
+          <ul>
+            <li><a href="#">Sobre nosotros</a><i class="fa-solid fa-chevron-right"></i></li>
+            <li><a href="#">Noticias</a><i class="fa-solid fa-chevron-right"></i></li>
+            <li><a href="#">Premios y reconocimientos</a><i class="fa-solid fa-chevron-right"></i></li>
+          </ul>
+        </div>
+        <div class="col-5-equal">
+          <h3 class="footer-toggle">Soporte legal</h3>
+          <ul>
+            <li><a href="#">Centro de ayuda</a><i class="fa-solid fa-chevron-right"></i></li>
+            <li><a href="#">Contacto</a><i class="fa-solid fa-chevron-right"></i></li>
+            <li><a href="#">Política de privacidad</a><i class="fa-solid fa-chevron-right"></i></li>
+            <li><a href="#">Términos y condiciones</a><i class="fa-solid fa-chevron-right"></i></li>
+          </ul>
+        </div>
+        <div class="col-5-equal">
+          <h3 class="footer-toggle">Comunidad</h3>
+          <ul class="social-links">
+            <!-- Primera fila: 3 iconos -->
+            <li class="social-row">
+              <a href="#" aria-label="Instagram">
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a href="#" aria-label="Facebook">
+                <i class="fab fa-facebook"></i>
+              </a>
+              <a href="#" aria-label="X (Twitter)">
+                <i class="fab fa-x-twitter"></i>
+              </a>
+            </li>
+            <!-- Segunda fila: 3 iconos -->
+            <li class="social-row">
+              <a href="#" aria-label="YouTube">
+                <i class="fab fa-youtube"></i>
+              </a>
+              <a href="#" aria-label="Telegram">
+                <i class="fab fa-telegram"></i>
+              </a>
+              <a href="#" aria-label="TikTok">
+                <i class="fab fa-tiktok"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="col-5-equal">
+          <ul class="payment-methods">
+            <!-- Primera fila: 3 iconos -->
+            <li class="payment-row">
+              <a href="#" aria-label="Maestro">
+                <img src="/webcorporativa/img/maestro.png" alt="Maestro">
+              </a>
+              <a href="#" aria-label="Mastercard">
+                <img src="/webcorporativa/img/master.png" alt="Mastercard">
+              </a>
+              <a href="#" aria-label="Visa">
+                <img src="/webcorporativa/img/visa.png" alt="Visa">
+              </a>
+            </li>
+            <!-- Segunda fila: 3 iconos -->
+            <li class="payment-row">
+              <a href="#" aria-label="PayPal">
+                <img src="/webcorporativa/img/pal.png" alt="PayPal">
+              </a>
+              <a href="#" aria-label="Google Pay">
+                <img src="/webcorporativa/img/gpay.png" alt="Google Pay">
+              </a>
+              <a href="#" aria-label="Apple Pay">
+                <img src="/webcorporativa/img/apay.png" alt="Apple Pay">
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="container-fluid copyright-container">
+      <div class="col-12">
+        <div class="copyright">
+          <p>©2025 NexApp. Todos los derechos reservados.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script defer>
+    const hamburger = document.querySelector('.hamburger');
+    const mainNav = document.querySelector('.main-nav');
+    const footerToggles = document.querySelectorAll('.footer-toggle');
+
+    hamburger.addEventListener('click', () => {
+      mainNav.classList.toggle('mobile-active');
+    });
+
+    footerToggles.forEach(toggle => {
+      toggle.addEventListener('click', () => {
+        toggle.classList.toggle('active'); // Alterna la clase para mostrar/ocultar el submenú
+      });
+    });
+  </script>
+
+
+</body>
+
+</html>

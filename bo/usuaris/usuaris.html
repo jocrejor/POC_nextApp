@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../../../BBDD/WebCorporativaDades.js"></script>
+    <script src="usuaris.js"></script>
+    <link rel="stylesheet" href="../../css/usuaris.css">
+    <title>Gestió d'Usuaris</title>
+    
+</head>
+<body>
+    <h1>Gestió d'Usuaris</h1>
+    <div class="botoLogout">
+        <button onclick="tancarSessio">Tancar Sessió</button>
+    </div>
+    
+    <!-- Formulari per afegir/editar usuaris -->
+    <div class="formulari-usuari">
+        <h2 id="titolFormulari">Afegir Nou Usuari</h2>
+        <form id="formulariUsuari">
+            <input type="hidden" id="indexUsuari" value="-1">
+            
+            <div class="camp-formulari">
+                <label for="nomUsuari">Nom complet:</label>
+                <input type="text" id="nomUsuari" placeholder="Ex: Joan Garcia" required minlength="2">
+            </div>
+            
+            <div class="camp-formulari">
+                <label for="emailUsuari">Correu electrònic:</label>
+                <input type="email" id="emailUsuari" placeholder="Ex: joan.garcia@example.com" required>
+            </div>
+            
+            <div class="camp-formulari">
+                <label for="passwordUsuari">Contrasenya:</label>
+                <input type="password" id="passwordUsuari" placeholder="Mínim 5 caràcters" minlength="5" maxlength="20" required pattern=".{5,20}">
+            </div>
+            <div>
+                <label for="rolUsuari">Rol del Usuari</label>
+                <select id="rolUsuari">
+                <option value="">Trieu un rol</option>
+                <option value="editor">Editor</option>
+                <option value="admin">Administrador</option>
+            </select>
+            </div>
+            
+            <div class="botons-formulari">
+                <button type="submit" id="btnAfegir">Afegir Usuari</button>
+                <button type="button" id="btnActualitzar" style="display: none;">Actualitzar Usuari</button>
+                <button type="button" id="btnCancelar" class="ocult">Cancel·lar</button>
+            </div>
+        </form>
+        
+        <div id="missatgeError"></div>
+        <div id="missatgeExit"></div>
+    </div>
+    
+    <!-- Contador d'usuaris -->
+    <div class="contador-usuaris">
+        Total d'usuaris: <span id="totalUsuaris">0</span>
+    </div>
+    
+    <!-- Taula d'usuaris -->
+    <div class="taula-container">
+        <table id="taulaUsuaris">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nom</th>
+                    <th>Correu electrònic</th>
+                    <th>Rol usuari</th>
+                    <th>Accions</th>
+                </tr>
+            </thead>
+            <tbody id="llistaUsuaris">
+                <!-- Els usuaris es mostraran aquí -->
+            </tbody>
+        </table>
+        <div id="senseUsuaris" class="sense-usuaris" style="display: none;">
+            No hi ha usuaris registrats. Afegeix el primer usuari utilitzant el formulari superior.
+    </div>
+    <div class="botons-paginacio">
+    <p>S'estan mostrant 0-0 de 0</p>
+    <button id="botoAnterior">Pàgina anterior</button>
+    <button id="botoSeguent">Pàgina següent</button>
+</div>
+</body>
+</html>
