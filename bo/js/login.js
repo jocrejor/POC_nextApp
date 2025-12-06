@@ -31,7 +31,7 @@ async function comprova(event) {
             localStorage.setItem("currentUser", JSON.stringify(usuariTrobat));
             
             setTimeout(() => {
-                window.location.href = "../admin/"; 
+                window.location.href = "../bo/"; 
             }, 2000);
             
         } else {
