@@ -26,13 +26,13 @@
                         </a>
                         <div id="menu_nav">
                             <ul id="nav">
-                                <li><a href="#">Home</a></li>
+                                <li><a href="./index.html">Home</a></li>
                                 <li><a href="compania/compania.html">Compañia</a></li>
                                 <li><a href="contacte/contacte.html">Demo</a></li>
-                                <li><a href="preus/preus.html">Precios</a></li>
+                                <li><a href="planes/planes.html">Planes</a></li>
                                 <li><a href="noticies/index.html">Noticias</a></li>
-                                <li><a href="#">Desarrolladores</a></li>
-                                <li class="seleccionat"><a href="com-funciona.html">Com funciona</a></li>
+                                <li><a href="desarrolladores/desarrolladores.html">Desarrolladores</a></li>
+                                <li class="seleccionat">Com funciona</li>
                             </ul>
                         </div>
                     </div>
@@ -62,7 +62,7 @@
                             <i class="fa-solid fa-chart-line"></i>
                         </div>
                         <h2>Un comparador potente y flexible</h2>
-                        <p>Nuestro plugin de comparación de productos te permite importar datos desde múltiples fuentes y crear comparativas detalladas para tus clientes. Compatible con *CSV, bases de datos, Apios y web *scraping.
+                        <p>Nuestro plugin de comparación de productos te permite importar datos desde múltiples fuentes y crear comparativas detalladas para tus clientes. Compatible con CSV, bases de datos, Apios y web scraping.
 </p>
                     </div>
                 </div>
@@ -79,7 +79,7 @@
                                         <i class="fa-solid fa-file-csv"></i>
                                     </div>
                                     <h3>Archivos CSV</h3>
-                                    <p>Nuestro plugin de comparación de productos te permite importar datos desde múltiples fuentes y crear comparativas detalladas para tus clientes. Compatible con *CSV, bases de datos, Apios y web *scraping.
+                                    <p>Nuestro plugin de comparación de productos te permite importar datos desde múltiples fuentes y crear comparativas detalladas para tus clientes. Compatible con CSV, bases de datos, Apios y web scraping.
 </p>
                                     <ul class="caracteristica-llista">
                                         <li><i class="fa-solid fa-check"></i> Importació automàtica</li>
@@ -125,7 +125,7 @@
                                         <i class="fa-solid fa-globe"></i>
                                     </div>
                                     <h3>Web Scraping</h3>
-                                    <p>Extrae datos directamente de tu tienda en línea u otras páginas web. Nuestro *scraper inteligente se adapta a la estructura de tu sitio Web.</p>
+                                    <p>Extrae datos directamente de tu tienda en línea u otras páginas web. Nuestro scraper inteligente se adapta a la estructura de tu sitio Web.</p>
                                     <ul class="caracteristica-llista">
                                         <li><i class="fa-solid fa-check"></i> Scraping inteligente</li>
                                         <li><i class="fa-solid fa-check"></i> Selectores personalizables</li>
@@ -148,7 +148,7 @@
                                     <div class="timeline-numero">1</div>
                                     <div class="timeline-contingut">
                                         <h3>Seleciona la fuente de datos</h3>
-                                        <p>Elige entre CSV, base de datos, API o web *scraping según tus necesidades.</p>
+                                        <p>Elige entre CSV, base de datos, API o web scraping según tus necesidades.</p>
                                     </div>
                                 </div>
 
@@ -227,7 +227,7 @@
                                     <i class="fa-solid fa-chevron-down"></i>
                                 </div>
                                 <div class="footer_link">
-                                    <a href="#" class="footer_opcio">
+                                    <a href="planes/planes.html" class="footer_opcio">
                                         <p>Planes y Precios</p>
                                         <i class="fa-solid fa-chevron-right"></i>
                                     </a>
@@ -251,7 +251,7 @@
                                         <p>Sobre nosotros</p>
                                         <i class="fa-solid fa-chevron-right"></i>
                                     </a>
-                                    <a href="noticies/noticies.html" class="footer_opcio">
+                                    <a href="noticies/index.html" class="footer_opcio">
                                         <p>Noticias</p>
                                         <i class="fa-solid fa-chevron-right"></i>
                                     </a>
@@ -267,7 +267,7 @@
                                     <i class="fa-solid fa-chevron-down"></i>
                                 </div>
                                 <div class="footer_link">
-                                    <a href="#" class="footer_opcio">
+                                    <a href="faq/faq.html" class="footer_opcio">
                                         <p>Centro de ayuda</p>
                                         <i class="fa-solid fa-chevron-right"></i>
                                     </a>
@@ -275,7 +275,7 @@
                                         <p>Contacto</p>
                                         <i class="fa-solid fa-chevron-right"></i>
                                     </a>
-                                    <a href="#" class="footer_opcio">
+                                    <a href="politica/politica_privacidad.html" class="footer_opcio">
                                         <p>Política de privacidad</p>
                                         <i class="fa-solid fa-chevron-right"></i>
                                     </a>
@@ -341,59 +341,7 @@
             </div>
         </div>
 
-        <!-- Modal de pagament -->
-        <div id="modalPagament" class="modal">
-            <div class="modal-contingut">
-                <span class="modal-tancar">&times;</span>
-                <div class="modal-cos">
-                    <div class="modal-esquerra">
-                        <h2>Pagament</h2>
-                        <p class="modal-subtitol">Introdueix les teues dades de pagament</p>
-                        
-                        <div class="modal-grup">
-                            <label for="nomTitular">Nom del titular</label>
-                            <input type="text" id="nomTitular" placeholder="Nom complet" required>
-                        </div>
 
-                        <div class="modal-grup">
-                            <label for="numeroTarjeta">Número de targeta</label>
-                            <input type="text" id="numeroTarjeta" placeholder="1234 5678 9012 3456" maxlength="19" required>
-                        </div>
-
-                        <div class="modal-fila">
-                            <div class="modal-grup modal-meitat">
-                                <label for="dataExpiracio">Data d'expiració</label>
-                                <input type="text" id="dataExpiracio" placeholder="MM / AA" maxlength="7" required>
-                            </div>
-                            <div class="modal-grup modal-meitat">
-                                <label for="cvv">CVV</label>
-                                <input type="text" id="cvv" placeholder="123" maxlength="3" required>
-                            </div>
-                        </div>
-
-                        <div class="modal-grup">
-                            <label for="codiPostal">Codi postal</label>
-                            <input type="text" id="codiPostal" placeholder="46700" required>
-                        </div>
-
-                        <button class="modal-boto-pagar">Pagar</button>
-                    </div>
-
-                    <div class="modal-dreta">
-                        <h3>Creiximent</h3>
-                        <p class="modal-plan-subtitol">Pla mensual Professional</p>
-                        <div class="modal-preu-total">
-                            <span class="modal-preu">50€</span>
-                        </div>
-                        <button class="modal-boto-comprar">Comprar</button>
-                        <p class="modal-text-petit">* Pots cancel·lar en qualsevol moment dins de configuració de compte</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Modal de contacte -->
-        <div id="modalContacte" class="modal">
             <div class="modal-contingut modal-contacte">
                 <span class="modal-tancar modal-tancar-contacte">&times;</span>
                 <div class="modal-header-contacte">
@@ -404,8 +352,8 @@
                 </div>
                 <div class="modal-cos-contacte">
                     <div class="modal-grup">
-                        <label for="contactNom">Nom</label>
-                        <input type="text" id="contactNom" placeholder="El teu nom" required>
+                        <label for="contactNom">Nombre</label>
+                        <input type="text" id="contactNom" placeholder="Tu nombre" required>
                     </div>
 
                     <div class="modal-grup">
@@ -414,13 +362,13 @@
                     </div>
 
                     <div class="modal-grup">
-                        <label for="contactTelefon">Telèfon</label>
+                        <label for="contactTelefon">Telèfono</label>
                         <input type="tel" id="contactTelefon" placeholder="+34 600 000 000" required>
                     </div>
 
                     <div class="modal-grup">
-                        <label for="contactMissatge">Missatge</label>
-                        <textarea id="contactMissatge" placeholder="Escriu el teu missatge aquí..." rows="4" required></textarea>
+                        <label for="contactMissatge">Mensaje</label>
+                        <textarea id="contactMissatge" placeholder="Escribe tu mensaje aquí" rows="4" required></textarea>
                     </div>
 
                     <button class="modal-boto-enviar">Enviar</button>
