@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="ca">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Com funciona</title>
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/template_grid3.css">
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/com-funciona.css">
+        <script src="https://kit.fontawesome.com/f653e778a0.js" crossorigin="anonymous"></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+        <script type="text/javascript" src="js/script.js"></script> 
+    </head>
+    <body>
+        <div class="container-fluid separacio_footer">
+            <!-- Header -->
+            <div class="row header">
+                <div class="col-12 alinear_header">
+                    <div id="logotip">
+                        <i id="menu_hamburguesa" class="fa-solid fa-bars"></i>
+                        <a href="index.html">
+                            <img id="logo" src="img/logo_tenda.png" alt="No s'ha pogut carregar l'imatge">
+                        </a>
+                        <div id="menu_nav">
+                            <ul id="nav">
+                                <li><a href="#">Home</a></li>
+                                <li><a href="compania/compania.html">Compañia</a></li>
+                                <li><a href="contacte/contacte.html">Demo</a></li>
+                                <li><a href="preus/preus.html">Precios</a></li>
+                                <li><a href="noticies/index.html">Noticias</a></li>
+                                <li><a href="#">Desarrolladores</a></li>
+                                <li class="seleccionat"><a href="com-funciona.html">Com funciona</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div id="header_icones">
+                        <a href="#"><i class="fa-regular fa-circle-question icona"></i></a>
+                        <a href="#"><i class="fa-regular fa-moon icona"></i></a>
+                        <a href="#"><i class="fa-solid fa-globe icona"></i></a>
+                        <a href="#"><i class="fa-regular fa-user icona"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hero Section -->
+            <div class="row hero-section">
+                <div class="col-12">
+                    <h1 class="hero-titol">Usa el mejor comparador</h1>
+                    <p class="hero-subtitol">Ayuda a tus clientes a tomar una decisión informada</p>
+                </div>
+            </div>
+
+            <!-- Main Content -->
+            <div class="row main">
+                <!-- Secció d'introducció -->
+                <div class="col-12 intro-section">
+                    <div class="intro-card">
+                        <div class="intro-icon">
+                            <i class="fa-solid fa-chart-line"></i>
+                        </div>
+                        <h2>Un comparador potente y flexible</h2>
+                        <p>Nuestro plugin de comparación de productos te permite importar datos desde múltiples fuentes y crear comparativas detalladas para tus clientes. Compatible con *CSV, bases de datos, Apios y web *scraping.
+</p>
+                    </div>
+                </div>
+
+                <!-- Característiques principals -->
+                <div class="col-12 caracteristiques-section">
+                    <h2 class="section-titol">Fonts de dades compatibles</h2>
+                    
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="caracteristica-card">
+                                    <div class="caracteristica-icon csv-icon">
+                                        <i class="fa-solid fa-file-csv"></i>
+                                    </div>
+                                    <h3>Archivos CSV</h3>
+                                    <p>Nuestro plugin de comparación de productos te permite importar datos desde múltiples fuentes y crear comparativas detalladas para tus clientes. Compatible con *CSV, bases de datos, Apios y web *scraping.
+</p>
+                                    <ul class="caracteristica-llista">
+                                        <li><i class="fa-solid fa-check"></i> Importació automàtica</li>
+                                        <li><i class="fa-solid fa-check"></i> Detecció de columnes</li>
+                                        <li><i class="fa-solid fa-check"></i> Validació de dades</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="col-6">
+                                <div class="caracteristica-card">
+                                    <div class="caracteristica-icon db-icon">
+                                        <i class="fa-solid fa-database"></i>
+                                    </div>
+                                    <h3>Bases de datos</h3>
+                                    <p>Conecta directamente con tu base de datos y ejecuta consultas SQL personalizadas para obtener exactamente los datos que necesitas.</p>
+                                    <ul class="caracteristica-llista">
+                                        <li><i class="fa-solid fa-check"></i> Consultas SQL personalizadas</li>
+                                        <li><i class="fa-solid fa-check"></i> Conexión segura</li>
+                                        <li><i class="fa-solid fa-check"></i> Actualización automática</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="col-6">
+                                <div class="caracteristica-card">
+                                    <div class="caracteristica-icon api-icon">
+                                        <i class="fa-solid fa-code"></i>
+                                    </div>
+                                    <h3>API Endpoints</h3>
+                                    <p>Integra datos de cualquier API REST. Configura tus peticiones HTTP y mapea las respuestas a los campos de comparación.</p>
+                                    <ul class="caracteristica-llista">
+                                        <li><i class="fa-solid fa-check"></i> Soporte REST y GraphQL</li>
+                                        <li><i class="fa-solid fa-check"></i> Autenticación flexible</li>
+                                        <li><i class="fa-solid fa-check"></i> Transformación de datos</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="col-6">
+                                <div class="caracteristica-card">
+                                    <div class="caracteristica-icon scraper-icon">
+                                        <i class="fa-solid fa-globe"></i>
+                                    </div>
+                                    <h3>Web Scraping</h3>
+                                    <p>Extrae datos directamente de tu tienda en línea u otras páginas web. Nuestro *scraper inteligente se adapta a la estructura de tu sitio Web.</p>
+                                    <ul class="caracteristica-llista">
+                                        <li><i class="fa-solid fa-check"></i> Scraping inteligente</li>
+                                        <li><i class="fa-solid fa-check"></i> Selectores personalizables</li>
+                                        <li><i class="fa-solid fa-check"></i> Programación automática</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Com funciona el procés -->
+                <div class="col-12 proces-section">
+                    <h2 class="section-titol">Como funciona el proceso</h2>
+                    
+                    <div class="container">
+                        <div class="row timeline">
+                            <div class="col-12">
+                                <div class="timeline-item">
+                                    <div class="timeline-numero">1</div>
+                                    <div class="timeline-contingut">
+                                        <h3>Seleciona la fuente de datos</h3>
+                                        <p>Elige entre CSV, base de datos, API o web *scraping según tus necesidades.</p>
+                                    </div>
+                                </div>
+
+                                <div class="timeline-item">
+                                    <div class="timeline-numero">2</div>
+                                    <div class="timeline-contingut">
+                                        <h3>Configura la conexión</h3>
+                                        <p>Proporciona las credenciales necesarias o carga el fichero. El sistema validará la conexión automáticamente.</p>
+                                    </div>
+                                </div>
+
+                                <div class="timeline-item">
+                                    <div class="timeline-numero">3</div>
+                                    <div class="timeline-contingut">
+                                        <h3>Mapea los campos </h3>
+                                        <p>Asigna los campos de tus datos en los campos de comparación: nombre, precio, características, etc.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Avantatges -->
+                <div class="col-12 avantatges-section">
+                    <h2 class="section-titol">Porque escoger nuestro comparador</h2>
+                    
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-4">
+                                <div class="avantatge-card">
+                                    <i class="fa-solid fa-bolt"></i>
+                                    <h3>Rápido y eficiente</h3>
+                                    <p>Proceso de datos en tiempo real con actualizaciones automáticas</p>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="avantatge-card">
+                                    <i class="fa-solid fa-shield-halved"></i>
+                                    <h3>Seguro y fiable</h3>
+                                    <p>Encriptación de datos y cumplimiento con estándares de seguridad</p>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="avantatge-card">
+                                    <i class="fa-solid fa-sliders"></i>
+                                    <h3>Totalmente personalizable</h3>
+                                    <p>Adapta el diseño y funcionalidad a tus necesidades específicas</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CTA Section -->
+                <div class="col-12 cta-section">
+                    <div class="cta-card">
+                        <h2>Empieza a comparar hoy</h2>
+                        <p>Prueba nuestro comparador gratuitamente durante 14 días. No necesitas tarjeta de crédito.</p>
+                        <div class="cta-botons">
+                            <button class="boto-primari modal-trigger">Comenzar prueba gratuita</button>
+                            <button class="boto-secundari contact-modal-trigger">Contacta con ventas</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <div class="row footer">
+                <div class="col-9 separacio_footer">
+                    <div class="container-fluid">
+                        <div class="row footer-contingut">
+                            <div class="col-3 footer_element">
+                                <div class="titol_footer">
+                                    <h3>Nuestro producto</h3>
+                                    <i class="fa-solid fa-chevron-down"></i>
+                                </div>
+                                <div class="footer_link">
+                                    <a href="#" class="footer_opcio">
+                                        <p>Planes y Precios</p>
+                                        <i class="fa-solid fa-chevron-right"></i>
+                                    </a>
+                                    <a href="contacte/contacte.html" class="footer_opcio">
+                                        <p>Solicitar demo</p>
+                                        <i class="fa-solid fa-chevron-right"></i>
+                                    </a>
+                                    <a href="#" class="footer_opcio">
+                                        <p>Como funciona</p>
+                                        <i class="fa-solid fa-chevron-right"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-3 footer_element">
+                                <div class="titol_footer">
+                                    <h3>Quién somos</h3>
+                                    <i class="fa-solid fa-chevron-down"></i>
+                                </div>
+                                <div class="footer_link">
+                                    <a href="compania/compania.html" class="footer_opcio">
+                                        <p>Sobre nosotros</p>
+                                        <i class="fa-solid fa-chevron-right"></i>
+                                    </a>
+                                    <a href="noticies/noticies.html" class="footer_opcio">
+                                        <p>Noticias</p>
+                                        <i class="fa-solid fa-chevron-right"></i>
+                                    </a>
+                                    <a href="premios/premios.html" class="footer_opcio">
+                                        <p>Premios y reconocimientos</p>
+                                        <i class="fa-solid fa-chevron-right"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-3 footer_element">
+                                <div class="titol_footer">
+                                    <h3>Soporte legal</h3>
+                                    <i class="fa-solid fa-chevron-down"></i>
+                                </div>
+                                <div class="footer_link">
+                                    <a href="#" class="footer_opcio">
+                                        <p>Centro de ayuda</p>
+                                        <i class="fa-solid fa-chevron-right"></i>
+                                    </a>
+                                    <a href="contacte/contacte.html" class="footer_opcio">
+                                        <p>Contacto</p>
+                                        <i class="fa-solid fa-chevron-right"></i>
+                                    </a>
+                                    <a href="#" class="footer_opcio">
+                                        <p>Política de privacidad</p>
+                                        <i class="fa-solid fa-chevron-right"></i>
+                                    </a>
+                                    <a href="Terminis_Condicions/terminis_condicions.html" class="footer_opcio">
+                                        <p>Términos y condiciones</p>
+                                        <i class="fa-solid fa-chevron-right"></i>
+                                    </a>
+                                </div>
+                            </div>                            
+                            <div class="col-3 footer_element">
+                                <div class="titol_footer">
+                                    <h3>Comunidad</h3>
+                                    <i class="fa-solid fa-chevron-down"></i>
+                                </div>
+                                <div class="xarxes">
+                                    <div class="xarxa">
+                                        <a href="https://www.instagram.com/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                                        <p>Instagram</p>
+                                    </div>
+                                    <div class="xarxa">
+                                        <a href="https://www.facebook.com/" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+                                        <p>Facebook</p>
+                                    </div>
+                                    <div class="xarxa">
+                                        <a href="https://x.com/" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
+                                        <p>X-Twitter</p>
+                                    </div>
+                                    <div class="xarxa">
+                                        <a href="https://www.youtube.com/" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+                                        <p>Youtube</p>
+                                    </div>
+                                    <div class="xarxa">
+                                        <a href="https://web.telegram.org/k/" target="_blank"><i class="fa-brands fa-telegram"></i></a>
+                                        <p>Telegram</p>
+                                    </div>
+                                    <div class="xarxa">
+                                        <a href="https://www.tiktok.com/" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
+                                        <p>Tik-Tok</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3 icones_pagament">
+                    <div class="pagament">
+                        <img src="img/maestro.png" alt="No s'ha carregat be la imatge">
+                        <img src="img/master.png" alt="No s'ha carregat be la imatge">
+                        <img src="img/visa.png" alt="No s'ha carregat be la imatge">
+                    </div>                    
+                    <div class="pagament">
+                        <img src="img/pal.png" alt="No s'ha carregat be la imatge">
+                        <img src="img/gpay.png" alt="No s'ha carregat be la imatge">
+                        <img src="img/apay.png" alt="No s'ha carregat be la imatge">
+                    </div>
+                </div>
+            </div>
+            <!-- Copyright -->
+            <div class="row">
+                <div class="col-12">
+                    <p id="copyright">@2025 NexApp. Todos los derechos reservados.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal de pagament -->
+        <div id="modalPagament" class="modal">
+            <div class="modal-contingut">
+                <span class="modal-tancar">&times;</span>
+                <div class="modal-cos">
+                    <div class="modal-esquerra">
+                        <h2>Pagament</h2>
+                        <p class="modal-subtitol">Introdueix les teues dades de pagament</p>
+                        
+                        <div class="modal-grup">
+                            <label for="nomTitular">Nom del titular</label>
+                            <input type="text" id="nomTitular" placeholder="Nom complet" required>
+                        </div>
+
+                        <div class="modal-grup">
+                            <label for="numeroTarjeta">Número de targeta</label>
+                            <input type="text" id="numeroTarjeta" placeholder="1234 5678 9012 3456" maxlength="19" required>
+                        </div>
+
+                        <div class="modal-fila">
+                            <div class="modal-grup modal-meitat">
+                                <label for="dataExpiracio">Data d'expiració</label>
+                                <input type="text" id="dataExpiracio" placeholder="MM / AA" maxlength="7" required>
+                            </div>
+                            <div class="modal-grup modal-meitat">
+                                <label for="cvv">CVV</label>
+                                <input type="text" id="cvv" placeholder="123" maxlength="3" required>
+                            </div>
+                        </div>
+
+                        <div class="modal-grup">
+                            <label for="codiPostal">Codi postal</label>
+                            <input type="text" id="codiPostal" placeholder="46700" required>
+                        </div>
+
+                        <button class="modal-boto-pagar">Pagar</button>
+                    </div>
+
+                    <div class="modal-dreta">
+                        <h3>Creiximent</h3>
+                        <p class="modal-plan-subtitol">Pla mensual Professional</p>
+                        <div class="modal-preu-total">
+                            <span class="modal-preu">50€</span>
+                        </div>
+                        <button class="modal-boto-comprar">Comprar</button>
+                        <p class="modal-text-petit">* Pots cancel·lar en qualsevol moment dins de configuració de compte</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal de contacte -->
+        <div id="modalContacte" class="modal">
+            <div class="modal-contingut modal-contacte">
+                <span class="modal-tancar modal-tancar-contacte">&times;</span>
+                <div class="modal-header-contacte">
+                    <div class="modal-icon-contacte">
+                        <i class="fa-regular fa-envelope"></i>
+                    </div>
+                    <h2>Contacta amb nosaltres</h2>
+                </div>
+                <div class="modal-cos-contacte">
+                    <div class="modal-grup">
+                        <label for="contactNom">Nom</label>
+                        <input type="text" id="contactNom" placeholder="El teu nom" required>
+                    </div>
+
+                    <div class="modal-grup">
+                        <label for="contactEmail">Email</label>
+                        <input type="email" id="contactEmail" placeholder="email@exemple.com" required>
+                    </div>
+
+                    <div class="modal-grup">
+                        <label for="contactTelefon">Telèfon</label>
+                        <input type="tel" id="contactTelefon" placeholder="+34 600 000 000" required>
+                    </div>
+
+                    <div class="modal-grup">
+                        <label for="contactMissatge">Missatge</label>
+                        <textarea id="contactMissatge" placeholder="Escriu el teu missatge aquí..." rows="4" required></textarea>
+                    </div>
+
+                    <button class="modal-boto-enviar">Enviar</button>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
