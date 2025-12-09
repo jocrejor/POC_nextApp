@@ -1,25 +1,27 @@
 <!DOCTYPE html>
 <html lang="ca">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Home Web Coorporativa</title>
-        <link rel="stylesheet" href="../css/normalize.css">
-        <link rel="stylesheet" href="../css/template_grid3.css">
-        <link rel="stylesheet" href="../css/common.css">
-        <link rel="stylesheet" href="./contacte.css">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home Web Coorporativa</title>
+  <link rel="stylesheet" href="../css/normalize.css">
+  <link rel="stylesheet" href="../css/template_grid3.css">
+  <link rel="stylesheet" href="../css/common.css">
+  <link rel="stylesheet" href="./contacte.css">
 
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+    rel="stylesheet">
 
-        <script src="https://kit.fontawesome.com/f653e778a0.js" crossorigin="anonymous"></script>
-        <script type="text/javascript" src="../js/common.js"></script> 
-        <script type="text/javascript" src="./contacte.js"></script> 
-        <script type="text/javascript" src="../apiAccess/crud.js"></script> 
+  <script src="https://kit.fontawesome.com/f653e778a0.js" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="../js/common.js"></script>
+  <script type="text/javascript" src="./contacte.js"></script>
+  <script type="text/javascript" src="../apiAccess/crud.js"></script>
 
-    </head>
+</head>
 
 <body>
   <div class="container-fluid separacio_footer">
@@ -28,7 +30,7 @@
       <div class="col-12 alinear_header">
         <div id="logotip">
           <i id="menu_hamburguesa" class="fa-solid fa-bars"></i>
-          <a href="#">
+          <a href="../index.html">
             <img id="logo" src="../img/logo_tenda.png" alt="No s'ha pogut carregar l'imatge">
           </a>
           <div id="menu_nav">
@@ -36,7 +38,7 @@
               <li> <a href="../index.html">Home</a></li>
               <li><a href="../compania/compania.html ">Compañia</a></li>
               <li><a href="../contacte/contacte.html">Demo</a></li>
-              <li><a href="../producte/preus.html">Precios</a></li>
+              <li><a href="../planes/planes.html">Precios</a></li>
               <li><a href="../noticies/index.html">Noticias</a></li>
               <li><a href="../desenvolupadors/desenvolupadors.html ">Desarrolladores</a></li>
               <li class="seleccionat"><a href="./contacte.html">Contactar</a></li>
@@ -44,7 +46,7 @@
           </div>
         </div>
         <div id="header_icones">
-          <a href="#"><i class="fa-regular fa-circle-question icona"></i></a>
+          <a href="../faq/faq.html"><i class="fa-regular fa-circle-question icona"></i></a>
           <a href="#"><i class="fa-regular fa-moon icona"></i></a>
           <a href="#"><i class="fa-solid fa-globe icona"></i></a>
           <a href="#"><i class="fa-regular fa-user icona"></i></a>
@@ -68,42 +70,55 @@
             </div>
             <div class="container-contacte">
 
-
-              <h3>Formulari de contacte</h3>
-              <form id="contactForm">
+              <h3>Formulario de contacto</h3>
+              <form id="contactForm" novalidate>
                 <div class="form-layout">
                   <div class="form-column">
                     <div class="form-group">
-                      <label for="name">Nom complet:</label>
+                      <label for="name">
+                        Nombre completo <span class="required">*</span>
+                      </label>
                       <input type="text" id="name" name="name" pattern="^[A-Za-zÀ-ÿ\s]{2,60}$"
                         title="El nom només pot contenir lletres i espais (2-60 caràcters)." required>
+                      <p class="error-message" id="nameError"></p>
                     </div>
 
                     <div class="form-group">
-                      <label for="email">Correu electrònic:</label>
+                      <label for="email">
+                        Correo electrónico <span class="required">*</span>
+                      </label>
                       <input type="email" id="email" name="email" required>
+                      <p class="error-message" id="emailError"></p>
                     </div>
 
                     <div class="form-group">
-                      <label for="phone">Telèfon (opcional):</label>
+                      <label for="phone">Telefono</label>
                       <input type="tel" id="phone" name="phone" pattern="^\+?[0-9 ]{9,20}$"
-                        title="El telèfon només pot contenir números, espais i, opcionalment, un + al principi (9-20 caràcters)."
+                        title="El teléfono solo puede contener números, espacios y, opcionalmente, un + al principio (9-20 caracteres)."
                         placeholder="Ex: +34 612345678 o +34 612 345 678">
+                      <p class="error-message" id="phoneError"></p>
                     </div>
                   </div>
 
                   <div class="form-column subject-column">
                     <div class="form-group">
-                      <label for="subject">Assumpte:</label>
+                      <label for="subject">
+                        Asunto <span class="required">*</span>
+                      </label>
                       <textarea id="subject" name="subject" minlength="5" maxlength="300"
-                        title="L'assumpte ha de tenir entre 5 i 300 caràcters."
-                        placeholder="Describiu el vostre assumpte..." required></textarea>
+                        title="El asunto debe tener entre 5 y 300 caracteres."
+                        placeholder="Describa su asunto..." required></textarea>
+                      <p class="error-message" id="subjectError"></p>
                     </div>
                   </div>
                 </div>
 
                 <button type="submit" id="sendBtn">Enviar missatge</button>
+
+                <p id="formMessage" class="form-message"></p>
               </form>
+
+
             </div>
           </div>
         </div>
@@ -121,7 +136,7 @@
                 <i class="fa-solid fa-chevron-down"></i>
               </div>
               <div class="footer_link">
-                <a href="../preus/preus.html " class="footer_opcio">
+                <a href="../planes/planes.html" class="footer_opcio">
                   <p>Planes y Precios</p>
                   <i class="fa-solid fa-chevron-right"></i>
                 </a>
@@ -161,7 +176,7 @@
                 <i class="fa-solid fa-chevron-down"></i>
               </div>
               <div class="footer_link">
-                <a href="../centreayuda/centre_ayuda.html " class="footer_opcio">
+                <a href="../faq/faq.html" class="footer_opcio">
                   <p>Centro de ayuda</p>
                   <i class="fa-solid fa-chevron-right"></i>
                 </a>
@@ -169,11 +184,11 @@
                   <p>Contacto</p>
                   <i class="fa-solid fa-chevron-right"></i>
                 </a>
-                <a href="../politica_privacidad.html " class="footer_opcio">
+                <a href="../politica/politica_privacidad.html" class="footer_opcio">
                   <p>Política de privacidad</p>
                   <i class="fa-solid fa-chevron-right"></i>
                 </a>
-                <a href="../Terminis_Condicions /terminis_condicions.html " class="footer_opcio">
+                <a href="../Terminis_Condicions/terminis_condicions.html" class="footer_opcio">
                   <p>Términos y condiciones</p>
                   <i class="fa-solid fa-chevron-right"></i>
                 </a>

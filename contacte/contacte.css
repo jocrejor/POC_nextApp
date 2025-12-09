@@ -3,7 +3,7 @@
    ======================= */
 
 .container-contacte {
-    margin: 40px auto 60px;
+    margin: 40px auto 30px;
     padding: 24px 28px;
     background: var(--color-fons);
     border-radius: 8px;
@@ -39,7 +39,6 @@
     flex: 1;
     display: flex;
     flex-direction: column;
-    gap: 16px;
 }
 
 .subject-column {
@@ -119,8 +118,8 @@
 
 /* Tarjeta info superior */
 .contact-info-card {
-    margin-top: 15px;
-    margin-bottom: 22px;
+    margin-top: 30px;
+    margin-bottom: 15px;
     padding: 30px 50px;
     border-radius: 6px;
     background-color: var(--color-vora-2);
@@ -140,6 +139,43 @@
     line-height: 1.6;
     color: var(--color-lletra-negra);
 }
+
+.input-error {
+  border-color: #e74c3c !important;
+  box-shadow: 0 0 0 2px rgba(231, 76, 60, 0.15);
+}
+/* Asterisc de camp obligatori */
+.required {
+  color: #e74c3c;
+  margin-left: 3px;
+}
+
+/* Missatges d'error sota cada camp */
+.container-contacte .error-message {
+  color: #e74c3c;
+  font-weight: 400;      /* ahora sí negrita */
+  font-size: 0.75rem;
+  margin-top: 4px;
+  margin-bottom: 10px;
+  min-height: 1em;
+}
+
+
+/* Missatge general del formulari (èxit / error) */
+.form-message {
+  margin-top: 30px;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.form-message.error {
+  color: #e74c3c;
+}
+
+.form-message.success {
+  color: #189a3d;
+}
+
 
 /* =======================
    Responsive fins a 767px
@@ -206,6 +242,12 @@
     .container-contacte h3 {
         font-size: 1.3rem;
         text-align: center;
+    }
+
+    .form-message.success {
+        text-align: center;
+        font-weight: 700;
+        font-size: 0.9rem;
     }
 }
 

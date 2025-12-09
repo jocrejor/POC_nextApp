@@ -3,6 +3,10 @@ $(document).ready(function () {
 });
 
 async function main() {
+  //thereIsUser("../login.html");
+
+    // Gestionem els botons de tancar sessió
+  //botonsTancarSessio("../login.html");
   // ===== Referencias DOM =====
   const contactesList = document.getElementById("contactesList");
   const detailSection = document.getElementById("contactDetailSection");
@@ -21,6 +25,7 @@ async function main() {
   const $searchInput = $("#searchInput");
   const $clearSearchBtn = $("#clearSearch");
   const $sortSelect = $("#sortSelect");
+  const $searchInputBtn = $("#searchInputBtn");
 
   // ===== Estado global =====
   let contacteActual = null;
@@ -41,6 +46,7 @@ async function main() {
     $searchInput.hide();
     $sortSelect.hide();
     $clearSearchBtn.hide();
+    $searchInputBtn.hide();
   }
 
   function mostrarTaulaSiToca() {
@@ -49,14 +55,19 @@ async function main() {
       $searchInput.show();
       $sortSelect.show();
       $clearSearchBtn.show();
+      $searchInputBtn.show()
     }
   }
 
   function configurarEventListeners() {
     // Búsqueda y orden
-    $searchInput.on("input", cercarContactes);
+    $searchInput.on("input", () => {});
     $clearSearchBtn.on("click", netejarCerca);
     $sortSelect.on("change", aplicarFiltres);
+    $searchInputBtn.on("click", () => {
+      cercarContactes();
+    });
+
 
     // Detalle
     closeDetailBtn.addEventListener("click", tancarDetall);

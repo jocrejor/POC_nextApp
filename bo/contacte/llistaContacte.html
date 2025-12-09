@@ -11,16 +11,13 @@
     <link rel="stylesheet" href="../css/common.css">
     <link rel="stylesheet" href="../css/common-table.css">
     <link rel="stylesheet" href="../css/common-paginacio.css">
-
-    <link rel="stylesheet" href="./css/usuaris.css">
     <link rel="stylesheet" href="./css/llistacontactes.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link ref="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" >
+    <link rel="icon" type="image/png" href="../img/logo_tenda.png">
 
-    <link
-        ref="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
-        rel="stylesheet">
 
     <script src="../js/common.js"></script>
     <script src="../js/login.js"> </script>
@@ -46,11 +43,11 @@
                 <div id="sessioUsuari">
                     <div class="headerUsuari">
                         <img src="../img/foto_persona.png" alt="No s'ha pogut carregar l'imatge">
-                        <span>Manolo Garibolo</span>
+                        <span id="usuariNom"></span>
                         <span class="separador">&nbsp;</span>
                     </div>
                     <div class="tancarSessio">
-                        <a href="#">
+                        <a href="../login.html">
                             <i class="fa-solid fa-arrow-right-from-bracket iconaTancarSessio"></i>
                         </a>
                     </div>
@@ -87,9 +84,6 @@
                             <div class="contactes-page-container">
                                 <!-- Controls de cerca -->
                                 <div class="controls">
-                                    <input type="text" id="searchInput"
-                                        placeholder="Cercar per nom, email o assumpte...">
-
                                     <select id="sortSelect">
                                         <option value="">Ordenar...</option>
                                         <option value="date_desc">Data (més recents primer)</option>
@@ -98,6 +92,9 @@
                                         <option value="name_desc">Nom (Z → A)</option>
                                     </select>
 
+                                    <input type="text" id="searchInput" placeholder="Cercar per nom, email o assumpte...">
+
+                                    <button id="searchInputBtn">Cercar</button>
                                     <button id="clearSearch">Netejar</button>
                                 </div>
 
@@ -127,7 +124,9 @@
                                         <div class="form-row">
                                             <div class="form-group">
                                                 <label for="editName">Nom complet:</label>
-                                                <input type="text" id="editName" name="name" required pattern="^[A-Za-zÀ-ÿ\s]+$" title="El nom només pot contenir lletres i espais.">
+                                                <input type="text" id="editName" name="name" required
+                                                    pattern="^[A-Za-zÀ-ÿ\s]+$"
+                                                    title="El nom només pot contenir lletres i espais.">
 
                                             </div>
                                             <div class="form-group">
@@ -138,7 +137,8 @@
                                         <div class="form-row">
                                             <div class="form-group">
                                                 <label for="editPhone">Telèfon:</label>
-                                                <input   type="tel" id="editPhone" name="phone" pattern="^\+?[0-9 ]+$" title="El telèfon només pot contenir números, espais i, opcionalment, un + al principi.">
+                                                <input type="tel" id="editPhone" name="phone" pattern="^\+?[0-9 ]+$"
+                                                    title="El telèfon només pot contenir números, espais i, opcionalment, un + al principi.">
                                             </div>
                                             <div class="form-group">
                                                 <label for="editSubject">Assumpte:</label>
@@ -146,9 +146,9 @@
                                             </div>
                                         </div>
                                         <div class="form-actions">
-                                            <button type="submit" class="save-btn">Guardar Canvis</button>
+                                            <button type="submit" class="save-btn">Actualitzar</button>
                                             <button type="button" id="cancelEditBtn"
-                                                class="secondary-btn">Cancel·lar</button>
+                                                class="secondary-btn">Tornar a la llista</button>
                                         </div>
                                     </form>
                                 </div>
