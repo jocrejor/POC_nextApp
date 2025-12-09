@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Home Web Coorporativa</title>
+        <title>Noticies</title>
         <link rel="stylesheet" href="../css/normalize.css">
         <link rel="stylesheet" href="../css/template_grid3.css">
         <link rel="stylesheet" href="../css/common.css">
@@ -13,7 +13,17 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
-        <script type="text/javascript" src="../js/common.js"></script> 
+        <script type="text/javascript" src="../js/common.js"></script>
+        
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-1D1KYPHBSK"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-1D1KYPHBSK');
+        </script>
     </head>
     <body>
         <div class="container-fluid separacio_footer">
@@ -38,7 +48,7 @@
                         </div>
                     </div>
                     <div id="header_icones">
-                        <a href="#"><i class="fa-regular fa-circle-question icona"></i></a>
+                        <a href="./faq/faq.html"><i class="fa-regular fa-circle-question icona"></i></a>
                         <a href="#"><i class="fa-regular fa-moon icona"></i></a>
                         <a href="#"><i class="fa-solid fa-globe icona"></i></a>
                         <a href="#"><i class="fa-regular fa-user icona"></i></a>
@@ -60,13 +70,13 @@
                                     <input id="buscar" type="text" placeholder="Buscar noticias">
                                     <i id="icona_buscar" class="fa-solid fa-magnifying-glass"></i>
                                 </div>
-                                <div class="imatge_principal">
+                                <a href="#" class="imatge_principal">
                                     <img id="portada_dk" src="./img/amazon_dk.jpg" alt="No s'ha pogut carregar la imatge">
                                     <img id="portada_mb" src="./img/amazon_mb.jpg" alt="No s'ha pogut carregar la imatge">
                                     <p class="recents">Recientes</p>
                                     <p class="titol_destacada">Amazon contrata nuestros servicios después de ver las buenas caracteristicas que ofrece nuestro comparador</p>
                                     <p class="data_destacada">24/09/2025</p>
-                                </div>
+                                </a>
                                 <div class="subtitol">
                                     <h2>Categorias</h2>
                                     <div class="linea_separadora"></div>
@@ -402,16 +412,16 @@
                                         <p>Contacto</p>
                                         <i class="fa-solid fa-chevron-right"></i>
                                     </a>
-                                    <a href="../politica_privacidad.html" class="footer_opcio">
+                                    <a href="../politica/politica_privacidad.html" class="footer_opcio">
                                         <p>Política de privacidad</p>
                                         <i class="fa-solid fa-chevron-right"></i>
                                     </a>
-                                    <a href="../terminis_condicions.html" class="footer_opcio">
+                                    <a href="../Terminis_Condicions/terminis_condicions.html" class="footer_opcio">
                                         <p>Términos y condiciones</p>
                                         <i class="fa-solid fa-chevron-right"></i>
                                     </a>
                                 </div>
-                            </div>                            
+                            </div>        
                             <div class="col-3 footer_element">
                                 <div class="titol_footer">
                                     <h3>Comunidad</h3>

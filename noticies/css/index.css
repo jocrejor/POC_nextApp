@@ -51,6 +51,7 @@
 /* Estils de noticia destacada */
 
 .imatge_principal {
+    display: block;
     position: relative;
     padding-top: 25px;
 }
