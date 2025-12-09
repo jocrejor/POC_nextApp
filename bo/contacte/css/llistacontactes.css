@@ -46,6 +46,23 @@
     font-size: 0.9em;
 }
 
+
+#searchInputBtn {
+    background-color: var(--color-primari);
+    color: var(--color-lletra-blanca);
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background-color 0.3s ease;
+}
+
+#searchInputBtn:hover {
+    background-color: var(--color-secundari);
+    font-weight: bold;
+}
+
 #clearSearch {
     background-color: var(--color-boto-netejar);
     color: var(--color-lletra-blanca);
