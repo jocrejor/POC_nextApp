@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../css/normalize.css">
     <link rel="stylesheet" href="../css/template_grid3.css">
     <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/common-modal.css">
     <link rel="stylesheet" href="css/faq.css">
 
     <script src="https://kit.fontawesome.com/f653e778a0.js" crossorigin="anonymous"></script>
@@ -16,7 +17,15 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
         rel="stylesheet">
+    <script type="text/javascript" src="../apiAccess/crud.js"></script>
     <script type="text/javascript" src="js/faq.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1D1KYPHBSK"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-1D1KYPHBSK');
+    </script>
 </head>
 
 <body>
@@ -247,18 +256,21 @@
                                     <i class="fa-solid fa-file-pdf"></i>
                                     Manual
                                 </a>
-                                <a href="#" class="contact-btn">
+                                <a id="btnCSV" class="contact-btn">
                                     <i class="fa-solid fa-file-csv"></i>
                                     CSV
                                 </a>
-                                <a href="#" class="contact-btn">
+                                <a id="btnAPI" class="contact-btn">
                                     <i class="fa-solid fa-gears"></i>
                                     API
                                 </a>
-                                <a href="#" class="contact-btn">
+
+                                <a id="btnScraping" class="contact-btn">
                                     <i class="fa-solid fa-database"></i>
                                     Scraping
                                 </a>
+
+
                             </div>
                         </div>
                     </div>
@@ -396,6 +408,125 @@
             </div>
         </div>
     </div>
+
+    <!-- MODAL API -->
+    <div id="modalAPI" class="modal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <h3>API – Información para desarrolladores</h3>
+
+            <p>La API pública permite acceder a familias, productos y atributos en formato JSON.</p>
+
+            <h4>Endpoints disponibles</h4>
+            <ul>
+                <li><strong>GET</strong> https://api.serverred.es/Family</li>
+                <li><strong>GET</strong> https://api.serverred.es/Product</li>
+                <li><strong>GET</strong> https://api.serverred.es/Attribute</li>
+            </ul>
+
+            <h4>Datos en tiempo real</h4>
+
+            <div id="apiDataContainer">
+                <p>Cargando datos reales de la API...</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL CSV -->
+    <div id="modalCSV" class="modal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <h3>Importación por CSV</h3>
+
+            <p>Puedes importar datos proporcionando archivos CSV con la siguiente estructura:</p>
+
+            <h4>1. Archivo: familias.csv</h4>
+            <pre><code>id,name,description
+1,Portátiles,Ordenadores portátiles de todas las marcas
+2,Smartphones,Teléfonos móviles inteligentes
+3,Componentes,Componentes de hardware</code></pre>
+
+            <h4>2. Archivo: productos.csv</h4>
+            <pre><code>id,name,familyId,price,description
+1,HP Pavilion 15,1,799.99,Portátil HP 15 pulgadas
+2,MacBook Air,1,1099.99,Portátil Apple
+3,iPhone 14,2,899.99,Smartphone Apple</code></pre>
+
+            <h4>3. Archivo: atributos.csv</h4>
+            <pre><code>productId,key,value
+1,procesador,Intel i5
+1,ram,16GB
+1,almacenamiento,512GB SSD
+2,procesador,Apple M1
+2,ram,8GB</code></pre>
+
+            <h4>Campos requeridos según el modelo de datos</h4>
+
+            <div id="csvDataContainer">
+                <p>Cargando estructura de datos actual...</p>
+            </div>
+
+            <h4>Instrucciones</h4>
+            <ul>
+                <li>Los archivos deben estar en formato CSV con codificación UTF-8</li>
+                <li>La primera fila debe contener los nombres de los campos</li>
+                <li>Los IDs deben ser únicos</li>
+                <li>Para subir los archivos, contacta con soporte técnico</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- MODAL SCRAPING -->
+    <div id="modalScraping" class="modal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <h3>Scraping – Integración de webs externas</h3>
+
+            <p>
+                El comparador puede integrar páginas web externas mediante <strong>scraping</strong>,
+                extrayendo automáticamente:
+            </p>
+
+            <ul>
+                <li><strong>Familias</strong> de productos</li>
+                <li><strong>Productos</strong> por familia</li>
+                <li><strong>Atributos</strong> de cada producto</li>
+            </ul>
+
+            <h4>Requisitos</h4>
+            <p>URLs públicas necesarias:</p>
+            <ul>
+                <li>URL listado de familias</li>
+                <li>URL listado de productos por familia</li>
+                <li>URL ficha del producto</li>
+            </ul>
+
+            <h4>Estructura HTML recomendada</h4>
+
+            <p><strong>Listado de familias:</strong></p>
+            <pre><code>&lt;ul class="family-list"&gt;
+  &lt;li&gt;&lt;a href="/familias/portatiles"&gt;Portátiles&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+
+            <p><strong>Listado de productos:</strong></p>
+            <pre><code>&lt;div class="product-card"&gt;
+  &lt;h3 class="product-title"&gt;Nombre producto&lt;/h3&gt;
+  &lt;span class="product-price"&gt;399€&lt;/span&gt;
+&lt;/div&gt;</code></pre>
+
+            <h4>Avisos importantes</h4>
+            <ul>
+                <li>Páginas públicas (sin login)</li>
+                <li>HTML estable (sin cambios constantes)</li>
+                <li>No bloquear con <code>robots.txt</code></li>
+                <li>Evitar carga solo por JavaScript</li>
+            </ul>
+
+            <div id="scrapingDataContainer"></div>
+        </div>
+    </div>
+
+
 </body>
 
 </html>

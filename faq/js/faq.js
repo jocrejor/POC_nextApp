@@ -135,4 +135,173 @@ function main() {
             }
         });
     });
+
+    // ---------- MODAL API ----------
+    const modalAPI = document.getElementById("modalAPI");
+    const btnAPI = document.getElementById("btnAPI");
+
+    if (modalAPI && btnAPI) {
+        const closeBtnAPI = modalAPI.querySelector(".modal-close");
+
+        btnAPI.addEventListener("click", async () => {
+            modalAPI.style.display = "block";
+
+            const apiContainer = document.getElementById("apiDataContainer");
+            apiContainer.innerHTML = "<p>Cargando datos reales de la API...</p>";
+
+            try {
+                const families = await getData(url, "Family");
+                const products = await getData(url, "Product");
+                const attributes = await getData(url, "Attribute");
+
+                apiContainer.innerHTML = `
+                    <h4>Families</h4>
+                    <pre>${JSON.stringify(families.slice(0, 2), null, 2)}</pre>
+                    <h4>Products</h4>
+                    <pre>${JSON.stringify(products.slice(0, 2), null, 2)}</pre>
+                    <h4>Attributes</h4>
+                    <pre>${JSON.stringify(attributes.slice(0, 2), null, 2)}</pre>
+                `;
+            } catch (err) {
+                apiContainer.innerHTML = "<p>Error cargando datos de la API.</p>";
+            }
+        });
+
+        closeBtnAPI.addEventListener("click", () => {
+            modalAPI.style.display = "none";
+        });
+
+        window.addEventListener("click", (e) => {
+            if (e.target === modalAPI) {
+                modalAPI.style.display = "none";
+            }
+        });
+    }
+
+   // ---------- MODAL SCRAPING ----------
+const modalScraping = document.getElementById("modalScraping");
+const btnScraping = document.getElementById("btnScraping");
+
+if (modalScraping && btnScraping) {
+    const closeBtn = modalScraping.querySelector(".modal-close");
+
+    btnScraping.addEventListener("click", async () => {
+        modalScraping.style.display = "block";
+        
+        let scrapingDataContainer = modalScraping.querySelector("#scrapingDataContainer");
+        if (!scrapingDataContainer) {
+            scrapingDataContainer = document.createElement("div");
+            scrapingDataContainer.id = "scrapingDataContainer";
+            const lastElement = modalScraping.querySelector("ul:last-of-type");
+            lastElement.insertAdjacentElement("afterend", scrapingDataContainer);
+        }
+        
+        scrapingDataContainer.innerHTML = "<p>Cargando datos de ejemplo...</p>";
+
+        try {
+            const families = await getData(url, "Family");
+            const products = await getData(url, "Product");
+            
+            scrapingDataContainer.innerHTML = `
+                <h4>Datos actuales del sistema</h4>
+                <p><strong>Familias:</strong> ${families.length}</p>
+                <p><strong>Productos:</strong> ${products.length}</p>
+                
+                ${families.length > 0 ? `
+                    <p><strong>Ejemplo de familia:</strong> ${families[0].name || 'Sin nombre'}</p>
+                ` : ''}
+                
+                ${products.length > 0 ? `
+                    <p><strong>Ejemplo de producto:</strong> ${products[0].name || 'Sin nombre'}</p>
+                ` : ''}
+                
+                <p><em>Estos datos son ejemplos de lo que se puede obtener mediante scraping.</em></p>
+            `;
+            
+        } catch (err) {
+            scrapingDataContainer.innerHTML = `
+                <p>⚠ Error cargando datos en tiempo real</p>
+            `;
+        }
+    });
+
+    closeBtn.addEventListener("click", () => {
+        modalScraping.style.display = "none";
+    });
+
+    window.addEventListener("click", (e) => {
+        if (e.target === modalScraping) {
+            modalScraping.style.display = "none";
+        }
+    });
+}
+
+// ---------- MODAL CSV ----------
+const modalCSV = document.getElementById("modalCSV");
+const btnCSV = document.getElementById("btnCSV");
+
+if (modalCSV && btnCSV) {
+    const closeBtnCSV = modalCSV.querySelector(".modal-close");
+
+    btnCSV.addEventListener("click", async () => {
+        modalCSV.style.display = "block";
+
+        const csvContainer = document.getElementById("csvDataContainer");
+        csvContainer.innerHTML = "<p>Cargando estructura de datos actual...</p>";
+
+        try {
+            // Obtener datos reales para mostrar la estructura actual
+            const families = await getData(url, "Family");
+            const products = await getData(url, "Product");
+            
+            if (families.length > 0 && products.length > 0) {
+                // Mostrar estructura basada en datos reales
+                const sampleFamily = families[0];
+                const sampleProduct = products[0];
+                
+                csvContainer.innerHTML = `
+                    <h5>Estructura actual (basada en datos reales):</h5>
+                    
+                    <p><strong>Campos de familias:</strong></p>
+                    <ul>
+                        ${Object.keys(sampleFamily).map(key => `
+                            <li><code>${key}</code>: ${typeof sampleFamily[key]}</li>
+                        `).join('')}
+                    </ul>
+                    
+                    <p><strong>Campos de productos:</strong></p>
+                    <ul>
+                        ${Object.keys(sampleProduct).map(key => `
+                            <li><code>${key}</code>: ${typeof sampleProduct[key]}</li>
+                        `).join('')}
+                    </ul>
+                    
+                    <p><strong>Datos actuales del sistema:</strong></p>
+                    <p>Familias: ${families.length} | Productos: ${products.length}</p>
+                `;
+            } else {
+                csvContainer.innerHTML = `
+                    <p>Usa la estructura de ejemplo mostrada arriba.</p>
+                    <p>Consulta el manual para más detalles.</p>
+                `;
+            }
+        } catch (err) {
+            csvContainer.innerHTML = `
+                <p>Error cargando estructura de datos.</p>
+                <p>Usa los ejemplos proporcionados como referencia.</p>
+            `;
+        }
+    });
+
+    closeBtnCSV.addEventListener("click", () => {
+        modalCSV.style.display = "none";
+    });
+
+    window.addEventListener("click", (e) => {
+        if (e.target === modalCSV) {
+            modalCSV.style.display = "none";
+        }
+    });
+}
+
 }
