@@ -1,112 +1,109 @@
 document.addEventListener("DOMContentLoaded", main);
 
 function main() {
+    // --- VARIABLES PRINCIPALS ---
     const menu_hamburguesa = document.getElementById("menu_hamburguesa");
     const nav = document.getElementById("nav");
+    let menuVisible = false;
+
     const titols = document.querySelectorAll(".titol_footer");
 
-    let visible = false;
-
-    // Funció per saber si estem en vista mòbil
-    const esMobil = () => window.innerWidth <= 767;
-
-    if (nav) {
-        if (esMobil()) {
-            nav.style.display = "none";
-            visible = false;
-        } else {
-            nav.style.display = "";
-            visible = false;
+    // Variables del Slider de Logos
+    const gridLogos = document.querySelector('.grid-logos');
+    const flechaIzq = document.querySelector('.fletxa-slider.esquerra');
+    const flechaDer = document.querySelector('.fletxa-slider.dreta');
+    let slideActual = 0; 
+    
+    // FUNCIÓ AUXILIAR DEL SLIDER
+    function moverSlider() {
+        if (gridLogos) {
+            const desplazamiento = slideActual * -50; 
+            gridLogos.style.transform = `translateX(${desplazamiento}%)`;
         }
     }
 
-    // --- MENU HAMBURGUESA---
+    // GESTIÓ DEL MENÚ DE HAMBURGUESA
     if (menu_hamburguesa && nav) {
         menu_hamburguesa.addEventListener("click", () => {
-            if (!esMobil()) return;
-
-            if (visible) {
-                nav.style.display = "none";
-                visible = false;
+            if (menuVisible) {
+                nav.style.display = 'none';
+                menuVisible = false;
             } else {
-                nav.style.display = "block";
-                visible = true;
+                nav.style.display = 'block';
+                menuVisible = true;
             }
         });
     }
 
-    // --- FOOTER: funció per inicialitzar segons mida ---
-    function inicialitzarFooter() {
-        const footerElements = document.querySelectorAll(".footer_element");
-
-        footerElements.forEach(footerElement => {
-            const links = footerElement.querySelectorAll(".footer_opcio");
-            const xarxes = footerElement.querySelector(".xarxes");
-
-            if (esMobil()) {
-                footerElement.classList.remove("footer_element_seleccionat");
-                links.forEach(link => {
-                    link.style.display = "none";
-                });
-                if (xarxes) {
-                    xarxes.style.display = "none";
-                }
-            } else {
-                footerElement.classList.remove("footer_element_seleccionat");
-                links.forEach(link => {
-                    link.style.display = "";
-                });
-                if (xarxes) {
-                    xarxes.style.display = "";
-                }
-            }
-        });
-    }
-
-    inicialitzarFooter();
-
-    // --- CLIC EN ELS TÍTOLS DEL FOOTER ---
+    // GESTIÓ DEL FOOTER
     titols.forEach(titol => {
         titol.addEventListener("click", () => {
-            if (!esMobil()) return;
-
             const footerElement = titol.closest(".footer_element");
-            const links = footerElement.querySelectorAll(".footer_opcio");
-            const xarxes = footerElement.querySelector(".xarxes");
+            const icon = titol.querySelector("i");
+            // Tots els elements que han de mostrar-se/ocultar-se
+            const opciones = footerElement.querySelectorAll(".footer_opcio, .xarxes"); 
 
-            const obert = footerElement.classList.toggle("footer_element_seleccionat");
+            footerElement.classList.toggle("footer_element_seleccionat");
 
-            // Si està obert → mostrem; si no → amaguem
-            links.forEach(link => {
-                link.style.display = obert ? "block" : "none";
-            });
-
-            if (xarxes) {
-                xarxes.style.display = obert ? "block" : "none";
+            // Canviar icona i mostrar/ocultar
+            if (footerElement.classList.contains("footer_element_seleccionat")) {
+                if(icon) icon.classList.replace("fa-chevron-down", "fa-chevron-up");
+                opciones.forEach(el => el.style.display = "block");
+            } else {
+                if(icon) icon.classList.replace("fa-chevron-up", "fa-chevron-down");
+                opciones.forEach(el => el.style.display = "none");
             }
         });
     });
 
-    // --- CONTROL DEL RESIZE ---
-    let eraMobil = esMobil();
-
-    window.addEventListener("resize", () => {
-        const araMobil = esMobil();
-
-        if (araMobil !== eraMobil) {
-            if (nav) {
-                if (araMobil) {
-                    nav.style.display = "none";
-                    visible = false;
-                } else {
-                    nav.style.display = "";
-                    visible = false;
-                }
+    // GESTIÓ DEL SLIDER DE LOGOS
+    if (flechaDer) {
+        flechaDer.addEventListener('click', () => {
+            if (slideActual < 1) {
+                slideActual++;
+                moverSlider();
             }
+        });
+    }
 
-            inicialitzarFooter();
+    if (flechaIzq) {
+        flechaIzq.addEventListener('click', () => {
+            if (slideActual > 0) {
+                slideActual--;
+                moverSlider();
+            }
+        });
+    }
 
-            eraMobil = araMobil;
+    // RESET AUTOMÀTIC EN CANVIAR LA MIDA 
+    window.addEventListener('resize', () => {
+        // Utilitzem 768px com a punt de trencament (breakpoint). Ajusta si el teu CSS és diferent.
+        if (window.innerWidth > 768) { 
+            
+            // RESET DEL NAV
+            if (nav) {
+                nav.style.display = "";
+                menuVisible = false;
+            }
+            
+            // RESET DEL FOOTER
+            const footerElements = document.querySelectorAll(".footer_element");
+            footerElements.forEach(elem => {
+                elem.classList.remove("footer_element_seleccionat"); 
+                const icon = elem.querySelector(".titol_footer i");
+                if (icon) icon.classList.replace("fa-chevron-up", "fa-chevron-down"); 
+                
+                const opciones = elem.querySelectorAll(".footer_opcio, .xarxes");
+                opciones.forEach(op => {
+                    op.style.display = "";
+                });
+            });
+
+            // RESET DEL SLIDER DE LOGOS
+            if (gridLogos) {
+                slideActual = 0;
+                gridLogos.style.transform = "translateX(0%)";
+            }
         }
     });
 }
