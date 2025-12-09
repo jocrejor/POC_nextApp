@@ -5,7 +5,7 @@
 }
 
 .contactes-page-container {
-    padding: 15px;
+    padding: 30px;
     background-color: var(--color-fons);
 }
 
@@ -281,6 +281,7 @@
     font-size: 0.9em;
     min-width: 100px;
     color: var(--color-lletra-blanca);
+    cursor: pointer;
 }
 
 
