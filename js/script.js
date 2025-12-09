@@ -1,72 +1,112 @@
 document.addEventListener("DOMContentLoaded", main);
 
 function main() {
-    // Configuració del botó de hamburguesa
     const menu_hamburguesa = document.getElementById("menu_hamburguesa");
     const nav = document.getElementById("nav");
-    let visible = false;
-
-    // Gestió del mení de hamburguesa
-    menu_hamburguesa.addEventListener("click", (e) => {
-        if (visible) {
-            nav.style.display = 'none';
-            visible = false;
-        } else {
-            nav.style.display = 'block';
-            visible = true;
-        }
-    });
-
     const titols = document.querySelectorAll(".titol_footer");
 
-    // Gestió del elements del footer
-    titols.forEach(titol => {
-        titol.addEventListener("click", () => {
-        const footerElement = titol.closest(".footer_element");
-        const icon = titol.querySelector("i");
-        
-        // Tots els elements que tenen que mostrar-se/ocultar-se (footer_opcio i xarxes)
-        const opciones = footerElement.querySelectorAll(".footer_opcio, .xarxes");
+    let visible = false;
 
-        // Alternar clase principal
-        footerElement.classList.toggle("footer_element_seleccionat");
+    // Funció per saber si estem en vista mòbil
+    const esMobil = () => window.innerWidth <= 767;
 
-        // Canviar icona i mostrar/ocultar elements
-        if (footerElement.classList.contains("footer_element_seleccionat")) {
-            icon.classList.replace("fa-chevron-down", "fa-chevron-up");
-            opciones.forEach(el => el.style.display = "block");
+    if (nav) {
+        if (esMobil()) {
+            nav.style.display = "none";
+            visible = false;
         } else {
-            icon.classList.replace("fa-chevron-up", "fa-chevron-down");
-            opciones.forEach(el => el.style.display = "none");
+            nav.style.display = "";
+            visible = false;
         }
-        });
-    });
-    
-}
-// Gestió de la secció del main del Logos Marques
-document.addEventListener('DOMContentLoaded', function() {
-    const gridLogos = document.querySelector('.grid-logos');
-    const flechaIzq = document.querySelector('.fletxa-slider.esquerra');
-    const flechaDer = document.querySelector('.fletxa-slider.dreta');
-    
-    let slideActual = 0; 
-    
-    function moverSlider() {
-        const desplazamiento = slideActual * -50; 
-        gridLogos.style.transform = `translateX(${desplazamiento}%)`;
     }
 
-    flechaDer.addEventListener('click', () => {
-        if (slideActual < 1) {
-            slideActual++;
-            moverSlider();
-        }
+    // --- MENU HAMBURGUESA---
+    if (menu_hamburguesa && nav) {
+        menu_hamburguesa.addEventListener("click", () => {
+            if (!esMobil()) return;
+
+            if (visible) {
+                nav.style.display = "none";
+                visible = false;
+            } else {
+                nav.style.display = "block";
+                visible = true;
+            }
+        });
+    }
+
+    // --- FOOTER: funció per inicialitzar segons mida ---
+    function inicialitzarFooter() {
+        const footerElements = document.querySelectorAll(".footer_element");
+
+        footerElements.forEach(footerElement => {
+            const links = footerElement.querySelectorAll(".footer_opcio");
+            const xarxes = footerElement.querySelector(".xarxes");
+
+            if (esMobil()) {
+                footerElement.classList.remove("footer_element_seleccionat");
+                links.forEach(link => {
+                    link.style.display = "none";
+                });
+                if (xarxes) {
+                    xarxes.style.display = "none";
+                }
+            } else {
+                footerElement.classList.remove("footer_element_seleccionat");
+                links.forEach(link => {
+                    link.style.display = "";
+                });
+                if (xarxes) {
+                    xarxes.style.display = "";
+                }
+            }
+        });
+    }
+
+    inicialitzarFooter();
+
+    // --- CLIC EN ELS TÍTOLS DEL FOOTER ---
+    titols.forEach(titol => {
+        titol.addEventListener("click", () => {
+            if (!esMobil()) return;
+
+            const footerElement = titol.closest(".footer_element");
+            const links = footerElement.querySelectorAll(".footer_opcio");
+            const xarxes = footerElement.querySelector(".xarxes");
+
+            const obert = footerElement.classList.toggle("footer_element_seleccionat");
+
+            // Si està obert → mostrem; si no → amaguem
+            links.forEach(link => {
+                link.style.display = obert ? "block" : "none";
+            });
+
+            if (xarxes) {
+                xarxes.style.display = obert ? "block" : "none";
+            }
+        });
     });
 
-    flechaIzq.addEventListener('click', () => {
-        if (slideActual > 0) {
-            slideActual--;
-            moverSlider();
+    // --- CONTROL DEL RESIZE ---
+    let eraMobil = esMobil();
+
+    window.addEventListener("resize", () => {
+        const araMobil = esMobil();
+
+        if (araMobil !== eraMobil) {
+            if (nav) {
+                if (araMobil) {
+                    nav.style.display = "none";
+                    visible = false;
+                } else {
+                    nav.style.display = "";
+                    visible = false;
+                }
+            }
+
+            inicialitzarFooter();
+
+            eraMobil = araMobil;
         }
     });
-});
+}
