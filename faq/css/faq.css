@@ -1,5 +1,10 @@
 /* Estils CSS específics per a la pàgina de FAQ */
 
+/* Scroll suave para enlaces internos */
+html {
+    scroll-behavior: smooth;
+}
+
 .faq-container {
     max-width: 900px;
     margin: 0 auto;
@@ -80,7 +85,8 @@
 
 .destacada-btn {
     padding: 12px 24px;
-    background-color: rgba(138, 179, 207, 0.1); /* var(--color-primari) amb opacitat */
+    background-color: rgba(138, 179, 207, 0.1);
+    /* var(--color-primari) amb opacitat */
     color: var(--color-secundari);
     border: 2px solid var(--color-primari);
     border-radius: 50px;
@@ -118,7 +124,8 @@
 }
 
 .faq-question:hover {
-    background-color: rgba(138, 179, 207, 0.05); /* var(--color-primari) amb opacitat */
+    background-color: rgba(138, 179, 207, 0.05);
+    /* var(--color-primari) amb opacitat */
 }
 
 .faq-question h3 {
@@ -151,7 +158,8 @@
 }
 
 .faq-item.active .faq-question {
-    background-color: rgba(138, 179, 207, 0.1); /* var(--color-primari) amb opacitat */
+    background-color: rgba(138, 179, 207, 0.1);
+    /* var(--color-primari) amb opacitat */
 }
 
 /* Contacte */
@@ -161,7 +169,8 @@
 }
 
 .contact-card {
-    background-color: rgba(138, 179, 207, 0.1); /* var(--color-primari) amb opacitat */
+    background-color: rgba(138, 179, 207, 0.1);
+    /* var(--color-primari) amb opacitat */
     border-radius: 15px;
     padding: 40px;
     text-align: center;
@@ -180,7 +189,7 @@
     font-size: 1.5em;
 }
 
-.contact-card > p {
+.contact-card>p {
     color: var(--color-lletra-negra);
     opacity: 0.7;
     margin-bottom: 25px;
@@ -247,41 +256,68 @@
     margin-bottom: 10px;
 }
 
+/* Estilos para la disposición de botones de desarrolladores */
+.desarrolladores-botones {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    max-width: 600px;
+    margin: 25px auto 20px;
+}
+
+.desarrolladores-botones .contact-btn {
+    min-width: 120px;
+    flex: 1;
+}
+
+
+
 /* Responsiu */
 @media only screen and (max-width: 767px) {
     .faq-container {
         padding: 20px 15px;
     }
-    
+
     .faq-title {
         font-size: 2em;
     }
-    
+
     .destacadas-botones {
         gap: 10px;
         padding: 0 10px;
     }
-    
+
     .destacada-btn {
         padding: 10px 18px;
         flex: 1;
         min-width: calc(50% - 10px);
     }
-    
+
     .faq-question {
         padding: 15px 20px;
     }
-    
+
     .contact-card {
         padding: 25px 20px;
     }
-    
+
     .contact-btn {
         min-width: 100%;
         padding: 12px 20px;
     }
-    
+
     .contact-buttons {
+        width: 100%;
+    }
+
+    .desarrolladores-botones {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .desarrolladores-botones .contact-btn {
+        min-width: 100%;
         width: 100%;
     }
 }
