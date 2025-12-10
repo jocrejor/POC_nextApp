@@ -20,23 +20,19 @@ document.addEventListener("DOMContentLoaded", function() {
 
 // Inicialitzar usuaris desde l'array User
 async function inicialitzarUsuaris() {
-    let sessioiniciada = sessionStorage.getItem("usuariActual");
+    let sessioiniciada = localStorage.getItem("currentUser");
 
     // Netejar la sessió si conté un objecte JSON mal format
     if (sessioiniciada && (sessioiniciada.startsWith('{') || sessioiniciada.startsWith('['))) {
         try {
-            const userData = JSON.parse(sessioiniciada);
-            if (userData.email) {
-                sessionStorage.setItem("usuariActual", userData.email);
-                sessioiniciada = userData.email;
+            sessdata = JSON.parse(sessioiniciada);
+            // if you find a "name" property wrtie it to the only span
+            const spanUsuari = document.getElementById("nomUsuariActiu");
+            if (sessdata.name && spanUsuari) {
+                spanUsuari.textContent = sessdata.name;
             }
         } catch (e) {
-            console.log("Netejant dades de sessió mal formades");
-            const emailMatch = sessioiniciada.match(/[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/);
-            if (emailMatch) {
-                sessionStorage.setItem("usuariActual", emailMatch[0]);
-                sessioiniciada = emailMatch[0];
-            }
+            console.error("Error parsejant dades de sessió", e);
         }
     }
 
@@ -357,7 +353,6 @@ function configurarEventListeners() {
             eliminarUsuari(tdId.textContent);
         }
     });
-    btnLogout.addEventListener("click" , logout())
 }
 
 // Configurar validació en temps real
