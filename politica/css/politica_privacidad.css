@@ -1,8 +1,11 @@
-main {
+main p{
     text-align: left;
-    padding: 20px 0;
-    padding-left:20px;
-    font-size: 0.95em;
+    padding: 15px 0;
+    padding-left:15px;
+}
+main li{
+padding: 15px 0;
+    padding-left:15px;
 }
 h1{
 color: var(--color-secundari);
