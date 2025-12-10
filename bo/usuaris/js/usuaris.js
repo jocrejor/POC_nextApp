@@ -613,7 +613,7 @@ async function editarUsuari(userId) {
 // Eliminar usuari
 async function eliminarUsuari(userId) {
     // Confirmació abans d'eliminar
-    if (!confirm("Estàs segur que vols eliminar aquest usuari?")) {
+    if (!confirm("Esteu segur que voleu eliminar aquest element? Aquesta acció no es pot desfer. i en opcions: “Eliminar” o “Cancel·lar”.")) {
         return;
     }
     
