@@ -16,4 +16,11 @@ function main() {
             console.error("Error parsejant dades de sessió", e);
         }
     }
+    // Tancar sessió
+    const btnLogout = document.getElementById("btnLogout");
+    btnLogout.addEventListener("click", function (e) {
+        e.preventDefault();
+        tancarSessio("login.html");
+    });
+
 }
