@@ -1,6 +1,6 @@
 main p{
     text-align: left;
-    padding: 15px 0;
+    padding: 10px 0;
     padding-left:15px;
 }
 main li{
@@ -11,8 +11,11 @@ h1{
 color: var(--color-secundari);
 }
 p strong{
-    color: var(--color-primari);
+    color: var(--color-secundari);
 }
 h2{
     color: var(--color-secundari);
+}
+#nav li{
+    cursor: pointer;
 }
