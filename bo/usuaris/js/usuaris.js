@@ -26,7 +26,7 @@ async function inicialitzarUsuaris() {
     if (sessioiniciada && (sessioiniciada.startsWith('{') || sessioiniciada.startsWith('['))) {
         try {
             sessdata = JSON.parse(sessioiniciada);
-            // if you find a "name" property wrtie it to the only span
+            
             const spanUsuari = document.getElementById("nomUsuariActiu");
             if (sessdata.name && spanUsuari) {
                 spanUsuari.textContent = sessdata.name;
