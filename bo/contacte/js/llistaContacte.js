@@ -1,11 +1,13 @@
+
+
 $(document).ready(function () {
   main();
 });
 
 async function main() {
-  //thereIsUser("../login.html");
 
-    // Gestionem els botons de tancar sessió
+  thereIsUser("../login.html");
+  // Gestionem els botons de tancar sessió
   //botonsTancarSessio("../login.html");
   // ===== Referencias DOM =====
   const contactesList = document.getElementById("contactesList");
@@ -39,7 +41,39 @@ async function main() {
   function inicialitzar() {
     carregarContactes();
     configurarEventListeners();
+    inicialitzarUsuaris();
   }
+
+  async function inicialitzarUsuaris() {
+    let sessioiniciada = localStorage.getItem("currentUser");
+
+    // Netejar la sessió si conté un objecte JSON mal format
+    if (sessioiniciada && (sessioiniciada.startsWith('{') || sessioiniciada.startsWith('['))) {
+      try {
+        sessdata = JSON.parse(sessioiniciada);
+        // if you find a "name" property wrtie it to the only span
+        const spanUsuari = document.getElementById("usuariNom");
+        if (sessdata.name && spanUsuari) {
+          spanUsuari.textContent = sessdata.name;
+        }
+      } catch (e) {
+        console.error("Error parsejant dades de sessió", e);
+      }
+      const btnLogout = document.getElementById("btnLogout");
+      btnLogout.addEventListener("click", function (e) {
+        e.preventDefault();
+        tancarSessio("login.html");
+      });
+
+    }
+  }
+
+  function tancarSessio() {
+    sessionStorage.clear();
+    window.location.href = '../login.html';
+  }
+
+
 
   function amagarTaula() {
     contactesList.classList.add("hidden");
@@ -61,7 +95,7 @@ async function main() {
 
   function configurarEventListeners() {
     // Búsqueda y orden
-    $searchInput.on("input", () => {});
+    $searchInput.on("input", () => { });
     $clearSearchBtn.on("click", netejarCerca);
     $sortSelect.on("change", aplicarFiltres);
     $searchInputBtn.on("click", () => {
@@ -174,16 +208,16 @@ async function main() {
     crearPaginacio(totalPages);
   }
 
-function crearPaginacio(totalPages) {
+  function crearPaginacio(totalPages) {
     const paginationDiv = document.createElement("div");
     paginationDiv.classList.add("pagination");
 
     // Ocultar la paginación si hay solo una página
     if (totalPages <= 1) {
-        paginationDiv.style.display = "none";
-        return;
+      paginationDiv.style.display = "none";
+      return;
     } else {
-        paginationDiv.style.display = "flex";
+      paginationDiv.style.display = "flex";
     }
 
     // Botón "Anterior"
@@ -192,10 +226,10 @@ function crearPaginacio(totalPages) {
     prevBtn.disabled = currentPage === 1; // Deshabilitar si estamos en la página 1
     if (currentPage === 1) prevBtn.style.display = "none"; // Ocultar si estamos en la página 1
     prevBtn.addEventListener("click", () => {
-        if (currentPage > 1) {
-            currentPage--;
-            carregarContactes(contactes, currentPage);
-        }
+      if (currentPage > 1) {
+        currentPage--;
+        carregarContactes(contactes, currentPage);
+      }
     });
     paginationDiv.appendChild(prevBtn);
 
@@ -205,28 +239,28 @@ function crearPaginacio(totalPages) {
 
     // Si estamos cerca del final, ajustamos para mostrar las últimas páginas
     if (endPage - startPage < 2) {
-        if (currentPage <= 2) {
-            endPage = Math.min(3, totalPages);
-        } else if (currentPage >= totalPages - 1) {
-            startPage = Math.max(totalPages - 2, 1);
-        }
+      if (currentPage <= 2) {
+        endPage = Math.min(3, totalPages);
+      } else if (currentPage >= totalPages - 1) {
+        startPage = Math.max(totalPages - 2, 1);
+      }
     }
 
     // Crear botones de las páginas
     for (let i = startPage; i <= endPage; i++) {
-        const pageBtn = document.createElement("button");
-        pageBtn.textContent = i;
-        pageBtn.classList.add("page-btn");
-        if (i === currentPage) {
-            pageBtn.classList.add("active"); // Página actual con estilo activo
-        }
+      const pageBtn = document.createElement("button");
+      pageBtn.textContent = i;
+      pageBtn.classList.add("page-btn");
+      if (i === currentPage) {
+        pageBtn.classList.add("active"); // Página actual con estilo activo
+      }
 
-        pageBtn.addEventListener("click", () => {
-            currentPage = i;
-            carregarContactes(contactes, currentPage);
-        });
+      pageBtn.addEventListener("click", () => {
+        currentPage = i;
+        carregarContactes(contactes, currentPage);
+      });
 
-        paginationDiv.appendChild(pageBtn);
+      paginationDiv.appendChild(pageBtn);
     }
 
     // Botón "Siguiente"
@@ -235,15 +269,15 @@ function crearPaginacio(totalPages) {
     nextBtn.disabled = currentPage === totalPages; // Deshabilitar si estamos en la última página
     if (currentPage === totalPages) nextBtn.style.display = "none"; // Ocultar si estamos en la última página
     nextBtn.addEventListener("click", () => {
-        if (currentPage < totalPages) {
-            currentPage++;
-            carregarContactes(contactes, currentPage);
-        }
+      if (currentPage < totalPages) {
+        currentPage++;
+        carregarContactes(contactes, currentPage);
+      }
     });
     paginationDiv.appendChild(nextBtn);
 
     contactesList.appendChild(paginationDiv);
-}
+  }
 
 
 
