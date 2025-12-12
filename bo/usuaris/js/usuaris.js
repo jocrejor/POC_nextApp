@@ -26,7 +26,7 @@ async function inicialitzarUsuaris() {
     if (sessioiniciada && (sessioiniciada.startsWith('{') || sessioiniciada.startsWith('['))) {
         try {
             sessdata = JSON.parse(sessioiniciada);
-            // if you find a "name" property wrtie it to the only span
+            
             const spanUsuari = document.getElementById("nomUsuariActiu");
             if (sessdata.name && spanUsuari) {
                 spanUsuari.textContent = sessdata.name;
@@ -613,7 +613,7 @@ async function editarUsuari(userId) {
 // Eliminar usuari
 async function eliminarUsuari(userId) {
     // Confirmació abans d'eliminar
-    if (!confirm("Estàs segur que vols eliminar aquest usuari?")) {
+    if (!confirm("Esteu segur que voleu eliminar aquest element? Aquesta acció no es pot desfer. i en opcions: “Eliminar” o “Cancel·lar”.")) {
         return;
     }
     
